@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xml:lang="fr">
+
+<xs:element name="EAST">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="PREFERENCES"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="METADONNEES"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="LOGO_GAUCHE"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="LOGO_DROIT"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="PIEDPAGE_GAUCHE"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="PIEDPAGE_DROIT"/>
+<xs:element maxOccurs="1" minOccurs="1" ref="PAGE_TITRE"/>
+<xs:element maxOccurs="unbounded" minOccurs="1" ref="PARTIE"/>
+</xs:sequence>
+<xs:attribute name="transition" type="transitiontype" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="PAGE_TITRE">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="1" ref="TITRE"/> 
+<xs:element maxOccurs="1" minOccurs="0" ref="SOUS_TITRE"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="AUTEUR"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="EMAIL"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="IDENTIFIANT"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="DATE_EXPOSE"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+
+<xs:element name="METADONNEES">
+<xs:annotation>
+<xs:documentation>
+Métadonnees sur le document (auteurs, date de création).
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="AUTEUR"/>
+<xs:element minOccurs="0" maxOccurs="1" ref="DATECRE"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="PREFERENCES">
+<xs:annotation>
+<xs:documentation>
+Choix globaux et preferences d'affichage
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+    
+    <xs:element minOccurs="0" maxOccurs="1" ref="COMMENTAIRES"/>
+    <xs:element minOccurs="0" maxOccurs="1" ref="IMPRESSION"/>
+    <xs:element minOccurs="0" maxOccurs="unbounded" ref="PUCE"/>
+    <xs:element minOccurs="0" maxOccurs="1" ref="PAGE"/>
+    <xs:element minOccurs="0" maxOccurs="1" ref="TITLES"/>
+    <xs:element minOccurs="0" maxOccurs="1" ref="ENV"/>
+    <xs:element minOccurs="0" maxOccurs="1" ref="TABLES"/>
+    <xs:element minOccurs="0" maxOccurs="1" ref="TITLE_PAGE"/>
+ 
+    
+</xs:sequence>
+
+</xs:complexType>
+</xs:element>
+
+<xs:element name="PUCE">
+    
+    <xs:complexType>
+        
+        <xs:attribute name="level" type="xs:positiveInteger" use="required"/>
+        <xs:attribute name="type" type="itemtype" use="optional"/>
+        <xs:attribute name="colorpuce" type="CSScolor" use="optional"/>
+        <xs:attribute name="colortexte" type="CSScolor" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        
+    </xs:complexType>
+    
+</xs:element>
+    
+<xs:element name="PAGE">
+    
+    <xs:complexType>
+        
+        <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="linkcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+        
+    </xs:complexType>
+    
+</xs:element>
+
+<xs:element name="TITLE_PAGE">
+    
+    <xs:complexType>
+        
+        <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+        
+    </xs:complexType>
+    
+</xs:element>
+
+<xs:element name="TITLES">
+    
+    <xs:complexType>
+        
+        <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+        
+    </xs:complexType>
+    
+</xs:element>
+
+<xs:element name="ENV">
+    
+    <xs:complexType>
+        
+        <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+        <xs:attribute name="titlecolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="titlefont" type="xs:string" use="optional"/>
+        <xs:attribute name="titleback" type="Allcolors" use="optional"/>
+        
+    </xs:complexType>
+    
+</xs:element>
+
+<xs:element name="TABLES">
+    
+    <xs:complexType>
+        
+        <xs:sequence>
+            
+            <xs:element ref="TAB_ENTETE"/>
+            <xs:element ref="TAB_CORPS"/>
+            
+        </xs:sequence>
+        
+    </xs:complexType>
+    
+</xs:element>
+
+<xs:element name="TAB_ENTETE">
+    
+    <xs:complexType>
+        
+        <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+        
+    </xs:complexType>
+    
+</xs:element>
+
+<xs:element name="TAB_CORPS">
+    
+    <xs:complexType>
+        
+        <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+        
+    </xs:complexType>
+    
+</xs:element>
+
+
+
+
+<xs:element name="BARRE_BOUTONS">
+    
+    <xs:annotation>
+        <xs:documentation>
+            Ativation/Désactivation de la barre des boutons en bas de page
+        </xs:documentation>
+    </xs:annotation>
+    
+    <xs:complexType>
+    <xs:attribute name="display" type="ouinon" default="oui" use="optional"/>
+    </xs:complexType>
+    
+</xs:element>
+
+
+
+<xs:simpleType name="ouinon">
+<xs:restriction base="xs:string">
+<xs:enumeration value="oui"/>
+<xs:enumeration value="non"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:element name="COMMENTAIRES">
+    
+    <xs:annotation>
+        
+        <xs:documentation>
+            Indique si les commentaires de l'auteur seront affichés dans le resultat.
+        </xs:documentation>
+        
+    </xs:annotation>
+    
+<xs:complexType>
+    
+    <xs:simpleContent>
+        
+        <xs:extension base="ouinon">
+            
+            <xs:attribute name="color" type="Allcolors" default="#196419" use="optional"/>
+        </xs:extension>
+        
+    </xs:simpleContent>
+
+</xs:complexType>
+
+
+  
+
+
+</xs:element>
+
+<xs:element name="IMPRESSION" type="ouinon">
+<xs:annotation>
+<xs:documentation>
+Indique si le document doit être préparé pour l'impression (avec les numéros de pages).
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+
+
+
+
+
+<xs:element name="TITRE" type="xs:string">
+</xs:element>
+
+<xs:element name="SOUS_TITRE" type="xs:string">
+</xs:element>
+
+<xs:simpleType name="EmailAddress">
+<xs:annotation>
+<xs:documentation>
+Email address.
+</xs:documentation>
+</xs:annotation>
+
+<xs:restriction base="xs:string">
+<xs:pattern value="([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:element name="EMAIL" type="EmailAddress">
+</xs:element>
+
+<xs:element name="AUTEUR" type="xs:string">
+</xs:element>
+
+<xs:element name="IDENTIFIANT">
+<xs:annotation>
+<xs:documentation>
+Identifiant public unique de l'expose.
+L'attribut type est la classe ou catégorie de l'exposé.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attribute name="TYPE" type="xs:string"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="DATE_EXPOSE">
+<xs:annotation>
+<xs:documentation>
+Date réelle de l'exposé. Intervient au milieu du bas de page de la page de titre
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:attribute name="TYPE" type="xs:string"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="DATECRE">
+<xs:annotation>
+<xs:documentation>
+Date de création.
+</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:pattern value="[0-3]?[0-9]/[0-1]?[0-9]/[1-2][0-9][0-9][0-9]"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+
+<xs:simpleType name="percentage">
+<xs:restriction base="xs:integer">
+<xs:minInclusive value="0"/>
+<xs:maxInclusive value="100"/>
+</xs:restriction>
+</xs:simpleType>
+
+
+<xs:element name="LOGO_GAUCHE">
+<xs:annotation>
+<xs:documentation>
+Logo gauche pour le document, Ã©ventuellement avec un lien si on clique dessus.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:attribute name="fichier" type="xs:anyURI" use="required"/>
+<xs:attribute name="url" type="xs:anyURI" use="optional"/>
+<xs:attribute name="alt" type="xs:string" use="optional"/>
+<xs:attribute name="image_alternative" type="xs:anyURI" use="optional"/>
+<xs:attribute default="10" name="largeur_SVG" type="percentage" use="optional"/>
+<xs:attribute default="10" name="hauteur_SVG" type="percentage" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+
+<xs:element name="LOGO_DROIT">
+<xs:annotation>
+<xs:documentation>
+Logo droit pour le document, éventuellement avec un lien si on clique dessus.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:attribute name="fichier" type="xs:anyURI" use="required"/>
+<xs:attribute name="url" type="xs:anyURI" use="optional"/>
+<xs:attribute name="alt" type="xs:string" use="optional"/>
+<xs:attribute name="image_alternative" type="xs:anyURI" use="optional"/>
+<xs:attribute default="10" name="largeur_SVG" type="percentage" use="optional"/>
+<xs:attribute default="10" name="hauteur_SVG" type="percentage" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="PIEDPAGE_GAUCHE" type="xs:string"/>
+<xs:element name="PIEDPAGE_DROIT" type="xs:string"/>
+
+<xs:element name="PARTIE">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:element maxOccurs="unbounded" minOccurs="1" ref="SECTION"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+
+<xs:element name="SECTION">
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:choice maxOccurs="unbounded" minOccurs="0">
+<xs:element ref="PARAGRAPHE"/>
+<xs:element ref="LISTE"/>
+<xs:element ref="LISTEDEF"/>
+<xs:element ref="TABLEAU"/>
+<xs:element ref="EXEMPLE"/>
+<xs:element ref="ENVIMAGE"/>
+<xs:element ref="ENVIDEO"/>
+<xs:element ref="COMMENTAIRE"/>
+<xs:element ref="APPLET"/>
+<xs:element ref="HTML"/>
+</xs:choice>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="PARAGRAPHE">
+<xs:complexType mixed="true">
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="LISTE">
+<xs:annotation>
+<xs:documentation>
+Liste Ã  points.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<!-- <xs:element maxOccurs="unbounded" minOccurs="1" ref="EL"/> -->
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="EL"/>
+</xs:sequence>
+<!-- <xs:attribute name="type" type="itemtype" use="required"/> -->
+<xs:attribute name="type" type="itemtype" use="optional"/>
+<xs:attribute name="couleur_puce" type="CSScolor" use="optional"/>
+<xs:attribute name="couleur_texte" type="CSScolor" use="optional"/>
+<xs:attribute name="image_puce" type="xs:anyURI" use="optional"/>
+<xs:attribute name="mode" type="list_mode" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+
+<xs:simpleType name="itemtype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="square"/>
+<xs:enumeration value="disc"/>
+<xs:enumeration value="circle"/>
+<xs:enumeration value="A"/>
+<xs:enumeration value="1"/>
+<xs:enumeration value="i"/>
+<xs:enumeration value="I"/> 
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="CSScolor">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="aqua"/>
+        <xs:enumeration value="black"/>
+        <xs:enumeration value="blue"/>
+        <xs:enumeration value="gray"/>
+        <xs:enumeration value="green"/>
+        <xs:enumeration value="lime"/>
+        <xs:enumeration value="maroon"/>
+        <xs:enumeration value="navy"/>
+        <xs:enumeration value="olive"/>
+        <xs:enumeration value="orange"/>
+        <xs:enumeration value="purple"/>
+        <xs:enumeration value="red"/>
+        <xs:enumeration value="silver"/>
+        <xs:enumeration value="teal"/>
+        <xs:enumeration value="white"/>
+        <xs:enumeration value="yellow"/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="W3Ccolor">
+    
+    <xs:restriction base="xs:string">
+        
+        <xs:enumeration value="aliceblue"/>
+        <xs:enumeration value="antiquewhite"/>
+        <xs:enumeration value="aqua"/>
+        <xs:enumeration value="aquamarine"/>
+        <xs:enumeration value="azure"/>
+        <xs:enumeration value="beige"/>
+        <xs:enumeration value="bisque"/>
+        <xs:enumeration value="black"/>
+        <xs:enumeration value="blanchedalmond"/>
+        <xs:enumeration value="blue"/>
+        <xs:enumeration value="blueviolet"/>
+        <xs:enumeration value="brown"/>
+        <xs:enumeration value="burlywood"/>
+        <xs:enumeration value="cadetblue"/>
+        <xs:enumeration value="chartreuse"/>
+        <xs:enumeration value="chocolate"/>
+        <xs:enumeration value="coral"/>
+        <xs:enumeration value="cornflowerblue"/>
+        <xs:enumeration value="cornsilk"/>
+        <xs:enumeration value="crimson"/>
+        <xs:enumeration value="cyan"/>
+        <xs:enumeration value="darkblue"/>
+        <xs:enumeration value="darkcyan"/>
+        <xs:enumeration value="darkgoldenrod"/>
+        <xs:enumeration value="darkgray"/>
+        <xs:enumeration value="darkgreen"/>
+        <xs:enumeration value="darkkhaki"/>
+        <xs:enumeration value="darkmagenta"/>
+        <xs:enumeration value="darkolivegreen"/>
+        <xs:enumeration value="darkorange"/>
+        <xs:enumeration value="darkorchid"/>
+        <xs:enumeration value="darkred"/>
+        <xs:enumeration value="darksalmon"/>
+        <xs:enumeration value="darkseagreen"/>
+        <xs:enumeration value="darkslateblue"/>
+        <xs:enumeration value="darkslategray"/>
+        <xs:enumeration value="darkturquoise"/>
+        <xs:enumeration value="darkviolet"/>
+        <xs:enumeration value="deeppink"/>
+        <xs:enumeration value="deepskyblue"/>
+        <xs:enumeration value="dimgray"/>
+        <xs:enumeration value="dodgerblue"/>
+        <xs:enumeration value="firebrick"/>
+        <xs:enumeration value="floralwhite"/>
+        <xs:enumeration value="forestgreen"/>
+        <xs:enumeration value="fuchsia"/>
+        <xs:enumeration value="gainsboro"/>
+        <xs:enumeration value="ghostwhite"/>
+        <xs:enumeration value="gold"/>
+        <xs:enumeration value="goldenrod"/>
+        <xs:enumeration value="gray"/>
+        <xs:enumeration value="green"/>
+        <xs:enumeration value="greenyellow"/>
+        <xs:enumeration value="honeydew"/>
+        <xs:enumeration value="hotpink"/>
+        <xs:enumeration value="indianred"/>
+        <xs:enumeration value="indigo"/>
+        <xs:enumeration value="ivory"/>
+        <xs:enumeration value="khaki"/>
+        <xs:enumeration value="lavender"/>
+        <xs:enumeration value="lavenderblush"/>
+        <xs:enumeration value="lawngreen"/>
+        <xs:enumeration value="lemonchiffon"/>
+        <xs:enumeration value="lightblue"/>
+        <xs:enumeration value="lightcoral"/>
+        <xs:enumeration value="lightcyan"/>
+        <xs:enumeration value="lightgoldenrodyellow"/>
+        <xs:enumeration value="lightgreen"/>
+        <xs:enumeration value="lightgrey"/>
+        <xs:enumeration value="lightpink"/>
+        <xs:enumeration value="lightsalmon"/>
+        <xs:enumeration value="lightseagreen"/>
+        <xs:enumeration value="lightskyblue"/>
+        <xs:enumeration value="lightslategray"/>
+        <xs:enumeration value="lightsteelblue"/>
+        <xs:enumeration value="lightyellow"/>
+        <xs:enumeration value="lime"/>
+        <xs:enumeration value="limegreen"/>
+        <xs:enumeration value="linen"/>
+        <xs:enumeration value="magenta"/>
+        <xs:enumeration value="maroon"/>
+        <xs:enumeration value="mediumaquamarine"/>
+        <xs:enumeration value="mediumblue"/>
+        <xs:enumeration value="mediumorchid"/>
+        <xs:enumeration value="mediumpurple"/>
+        <xs:enumeration value="mediumseagreen"/>
+        <xs:enumeration value="mediumslateblue"/>
+        <xs:enumeration value="mediumspringgreen"/>
+        <xs:enumeration value="mediumturquoise"/>
+        <xs:enumeration value="mediumvioletred"/>
+        <xs:enumeration value="midnightblue"/>
+        <xs:enumeration value="mintcream"/>
+        <xs:enumeration value="mistyrose"/>
+        <xs:enumeration value="moccasin"/>
+        <xs:enumeration value="navajowhite"/>
+        <xs:enumeration value="navy"/>
+        <xs:enumeration value="oldlace"/>
+        <xs:enumeration value="olive"/>
+        <xs:enumeration value="olivedrab"/>
+        <xs:enumeration value="orange"/>
+        <xs:enumeration value="orangered"/>
+        <xs:enumeration value="orchid"/>
+        <xs:enumeration value="palegoldenrod"/>
+        <xs:enumeration value="palegreen"/>
+        <xs:enumeration value="paleturquoise"/>
+        <xs:enumeration value="palevioletred"/>
+        <xs:enumeration value="papayawhip"/>
+        <xs:enumeration value="peachpuff"/>
+        <xs:enumeration value="peru"/>
+        <xs:enumeration value="pink"/>
+        <xs:enumeration value="plum"/>
+        <xs:enumeration value="powderblue"/>
+        <xs:enumeration value="purple"/>
+        <xs:enumeration value="red"/>
+        <xs:enumeration value="rosybrown"/>
+        <xs:enumeration value="royalblue"/>
+        <xs:enumeration value="saddlebrown"/>
+        <xs:enumeration value="salmon"/>
+        <xs:enumeration value="sandybrown"/>
+        <xs:enumeration value="seagreen"/>
+        <xs:enumeration value="seashell"/>
+        <xs:enumeration value="sienna"/>
+        <xs:enumeration value="silver"/>
+        <xs:enumeration value="skyblue"/>
+        <xs:enumeration value="slateblue"/>
+        <xs:enumeration value="slategray"/>
+        <xs:enumeration value="snow"/>
+        <xs:enumeration value="springgreen"/>
+        <xs:enumeration value="steelblue"/>
+        <xs:enumeration value="tan"/>
+        <xs:enumeration value="teal"/>
+        <xs:enumeration value="thistle"/>
+        <xs:enumeration value="tomato"/>
+        <xs:enumeration value="turquoise"/>
+        <xs:enumeration value="violet"/>
+        <xs:enumeration value="wheat"/>
+        <xs:enumeration value="white"/>
+        <xs:enumeration value="whitesmoke"/>
+        <xs:enumeration value="yellow"/>
+        <xs:enumeration value="yellowgreen"/>
+
+    
+    </xs:restriction>
+ 
+</xs:simpleType>
+
+<xs:simpleType name="RGBcolor">
+    <xs:restriction base="xs:string">
+        <xs:pattern value='#[0-9A-F]{6}'/>
+    </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="Allcolors">
+    <xs:union memberTypes="CSScolor W3Ccolor RGBcolor"/>
+</xs:simpleType>
+
+<xs:simpleType name="list_mode">
+<xs:restriction base="xs:string">
+<xs:enumeration value="accordeon"/>
+<xs:enumeration value="pliage"/>
+<xs:enumeration value="incremental"/>
+<xs:enumeration value="incremental_ombre"/>
+<xs:enumeration value="incremental_allume"/>
+<xs:enumeration value="progressif"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="transitiontype">
+<xs:restriction base="xs:string">
+<xs:enumeration value="none"/>
+<xs:enumeration value="crossfade"/>
+<xs:enumeration value="fadethrough"/>
+<xs:enumeration value="carousel"/>
+<xs:enumeration value="slide-in"/>
+<xs:enumeration value="toss"/>
+<xs:enumeration value="burst"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:element name="EL">
+<xs:annotation>
+<xs:documentation>
+Elément de liste
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:choice maxOccurs="unbounded" minOccurs="0">
+<xs:element ref="LISTE"/>
+<xs:group ref="texte"/>
+<xs:element ref="COMMENTAIRE"/>
+</xs:choice>
+
+</xs:complexType>
+</xs:element>
+
+<xs:element name="LISTEDEF">
+<xs:annotation>
+<xs:documentation>
+Liste de définitions
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:sequence maxOccurs="unbounded" minOccurs="1">
+<xs:element ref="TERME"/>
+<xs:element ref="DEF"/>
+</xs:sequence>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="TERME">
+<xs:annotation>
+<xs:documentation>
+Terme d'une liste de définitions
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="DEF">
+<xs:annotation>
+<xs:documentation>
+Définition pour une liste de definitions
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+</xs:complexType>
+</xs:element>
+
+
+<xs:element name="TABLEAU">
+<xs:complexType>
+<xs:sequence maxOccurs="unbounded">
+<xs:element ref="LT"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="LT">
+<xs:annotation>
+<xs:documentation>
+Ligne de tableau
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:choice>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="ET"/>
+</xs:sequence>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="CT"/>
+</xs:sequence>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="CT">
+<xs:annotation>
+<xs:documentation>
+Cellule de tableau
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:choice>    
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+<xs:element maxOccurs="unbounded" minOccurs="0" ref="LISTE"/>
+</xs:choice>  
+<xs:attribute name="rowspan" type="xs:positiveInteger" use="optional"/>
+<xs:attribute name="colspan" type="xs:positiveInteger" use="optional"/>
+       <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+        
+</xs:complexType>
+</xs:element>
+
+<xs:element name="ET">
+<xs:annotation>
+<xs:documentation>
+Cellule entête de tableau
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+<xs:attribute name="colspan" type="xs:positiveInteger" use="optional"/>
+       <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+        
+</xs:complexType>
+</xs:element>
+
+<xs:element name="EXEMPLE">
+<xs:complexType mixed="true">
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+</xs:sequence>
+<xs:attribute name="label" type="xs:string" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:group name="texte">
+    
+<xs:annotation>
+    
+    <xs:documentation>
+        
+        Ensemble de texte et d'éléments mélanges à  du texte
+    
+    </xs:documentation>
+    
+</xs:annotation>
+
+<xs:choice>
+    
+    <xs:element ref="EMPHASE"/>
+    <xs:element ref="CODE"/>
+    <xs:element ref="CODE_COLS"/>
+    <xs:element ref="ESP"/>
+    <xs:element ref="BR"/>
+    <xs:element ref="LIEN_EXTERNE"/>
+    <xs:element ref="LIEN_INTERNE"/>
+    <xs:element ref="IMAGE"/>
+    <xs:element ref="VIDEO"/>
+    <xs:element ref="EQUATION"/>
+    <xs:element ref="EXEMPLE"/>
+
+</xs:choice>
+
+</xs:group>
+
+<xs:element name="EMPHASE" type="xs:string">
+</xs:element>
+
+<xs:element name="CODE">
+
+    <xs:complexType>
+    
+        <xs:simpleContent>
+            
+            <xs:extension base="xs:string">
+                
+                <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+                <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+                <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+                <xs:attribute name="font" type="xs:string" use="optional"/>
+                
+            </xs:extension>
+            
+        </xs:simpleContent>
+
+    </xs:complexType>
+    
+</xs:element>
+
+<xs:element name="CODE_COLS">
+    
+    <xs:complexType mixed="true">
+        
+        <xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+        
+        <xs:attribute name="nbcols" type="xs:integer" use="optional"/>
+        <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+        
+    </xs:complexType>
+    
+</xs:element>
+
+
+<xs:element name="ESP">
+<xs:annotation>
+<xs:documentation>
+Espace insécable.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+
+<xs:element name="BR">
+<xs:annotation>
+<xs:documentation>
+Saut de ligne. Utiliser PARAGRAPHE de préférence pour séparer les paragraphes.
+</xs:documentation>
+</xs:annotation>
+</xs:element>
+
+<xs:element name="LIEN_EXTERNE">
+<xs:complexType mixed="true">
+<xs:attribute name="href" type="xs:anyURI" use="required"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="LIEN_INTERNE">
+<xs:complexType mixed="true">
+<xs:attribute name="num" type="xs:integer" use="required"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="EQUATION">
+<xs:complexType>
+<xs:attribute name="texte" type="xs:string" use="required"/>
+<xs:attribute name="image" type="xs:anyURI" use="required"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="IMAGE">
+<xs:complexType>
+<xs:attribute name="fichier" type="xs:anyURI" use="required"/>
+<xs:attribute name="alt" type="xs:string" use="optional"/>
+<xs:attribute name="largeur" type="percentage" use="optional"/>
+<xs:attribute name="hauteur" type="percentage" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="ENVIMAGE">
+<xs:annotation>
+<xs:documentation>
+Environnement pour une image, avec un titre et une légende.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:element maxOccurs="1" minOccurs="1" ref="IMAGE"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="LEGENDE"/>
+</xs:sequence>
+        <xs:attribute name="titlecolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="titlefont" type="xs:string" use="optional"/>
+        <xs:attribute name="titleback" type="Allcolors" use="optional"/>
+        <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="VIDEO">
+<xs:complexType>
+<xs:attribute name="fichier" type="xs:anyURI" use="required"/>
+<xs:attribute name="largeur" type="percentage" use="optional"/>
+<xs:attribute name="hauteur" type="percentage" use="optional"/>
+<xs:attribute name="controls" type="xs:boolean" use="optional"/>
+<xs:attribute name="poster" type="xs:anyURI" use="optional"/>
+<xs:attribute name="autoplay" type="xs:boolean" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+
+
+<xs:element name="ENVIDEO">
+<xs:annotation>
+<xs:documentation>
+Environnement pour une video, avec un titre et une légende.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:sequence>
+<xs:element maxOccurs="1" minOccurs="0" ref="TITRE"/>
+<xs:element maxOccurs="1" minOccurs="1" ref="VIDEO"/>
+<xs:element maxOccurs="1" minOccurs="0" ref="LEGENDE"/>
+</xs:sequence>
+        <xs:attribute name="titlecolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="titlefont" type="xs:string" use="optional"/>
+        <xs:attribute name="titleback" type="Allcolors" use="optional"/>
+        <xs:attribute name="image" type="xs:anyURI" use="optional"/>
+        <xs:attribute name="textcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="backcolor" type="Allcolors" use="optional"/>
+        <xs:attribute name="font" type="xs:string" use="optional"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="LEGENDE">
+<xs:complexType mixed="true">
+<xs:group maxOccurs="unbounded" minOccurs="0" ref="texte"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="COMMENTAIRE">
+<xs:annotation>
+<xs:documentation>
+Texte qui ne sera pas affiché en sortie, sauf si le paramêtre "commentaires" de la feuille de style a la valeur "oui".
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+<xs:choice maxOccurs="unbounded" minOccurs="0">
+<xs:element ref="PARAGRAPHE"/>
+<xs:element ref="LISTE"/>
+<xs:element ref="LISTEDEF"/>
+<xs:element ref="TABLEAU"/>
+<xs:group ref="texte"/>
+</xs:choice>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="HTML">
+<xs:annotation>
+<xs:documentation>
+Code HTML Ã  afficher "tel quel"
+</xs:documentation>
+</xs:annotation>
+<xs:complexType mixed="true">
+</xs:complexType>
+</xs:element>
+
+<xs:element name="APPLET">
+<xs:annotation>
+<xs:documentation>
+Appliquette Java.
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:choice maxOccurs="unbounded" minOccurs="0">
+<xs:element ref="PARAM"/>
+</xs:choice>
+<xs:attribute name="classe" type="xs:string" use="required"/>
+<xs:attribute name="archive" type="xs:string" use="optional"/>
+<xs:attribute name="largeur" type="xs:positiveInteger" use="required"/>
+<xs:attribute name="hauteur" type="xs:positiveInteger" use="required"/>
+</xs:complexType>
+</xs:element>
+
+<xs:element name="PARAM">
+<xs:annotation>
+<xs:documentation>
+parametre d'applet
+</xs:documentation>
+</xs:annotation>
+<xs:complexType>
+<xs:attribute name="nom" type="xs:string" use="required"/>
+<xs:attribute name="valeur" type="xs:string" use="required"/>
+</xs:complexType>
+</xs:element>
+</xs:schema>

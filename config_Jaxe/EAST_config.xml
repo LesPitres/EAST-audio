@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<CONFIG_JAXE>
+  <LANGAGE>
+    <FICHIER_SCHEMA nom="EAST.xsd"/>
+    <RACINE element="EAST"/>
+  </LANGAGE>
+  
+  <MENUS>
+    <MENU nom="Organisation">
+      <MENU_INSERTION nom="PAGE_TITRE" type_noeud="element"/>
+      <MENU_INSERTION nom="PARTIE" type_noeud="element"/>
+      <MENU_INSERTION nom="METADONNEES" type_noeud="element"/>
+      <MENU_INSERTION nom="PREFERENCES" type_noeud="element"/>
+      <MENU_INSERTION nom="COMMENTAIRES" type_noeud="element"/>
+      <MENU_INSERTION nom="IMPRESSION" type_noeud="element"/>
+      <MENU_INSERTION nom="DATECRE" type_noeud="element"/>
+      <MENU_INSERTION nom="TITRE" raccourci="T" type_noeud="element"/>
+      <MENU_INSERTION nom="SOUS_TITRE" type_noeud="element"/>
+      <MENU_INSERTION nom="AUTEUR" type_noeud="element"/>
+      <MENU_INSERTION nom="LOGO_GAUCHE" type_noeud="element"/>
+      <MENU_INSERTION nom="LOGO_DROIT" type_noeud="element"/>
+      <MENU_INSERTION nom="PIEDPAGE_GAUCHE" type_noeud="element"/>
+      <MENU_INSERTION nom="PIEDPAGE_DROIT" type_noeud="element"/>
+      <MENU_INSERTION nom="SECTION" raccourci="S" type_noeud="element"/>
+      <MENU_INSERTION nom="PARAGRAPHE" raccourci="P" type_noeud="element"/>
+      <MENU_INSERTION nom="EXEMPLE" type_noeud="element"/>
+    </MENU>
+    <MENU nom="Ensembles">
+      <MENU_INSERTION nom="LISTE" raccourci="L" type_noeud="element"/>
+      <MENU_INSERTION nom="EL" raccourci="I" type_noeud="element"/>
+      <MENU_INSERTION nom="LISTEDEF" type_noeud="element"/>
+      <MENU_INSERTION nom="TERME" type_noeud="element"/>
+      <MENU_INSERTION nom="DEF" type_noeud="element"/>
+      <MENU_INSERTION nom="TABLEAU" type_noeud="element"/>
+      <MENU_INSERTION nom="ENVIMAGE" type_noeud="element"/>
+      <MENU_INSERTION nom="ENVIDEO" type_noeud="element"/>
+      <MENU_INSERTION nom="IMAGE" type_noeud="element"/>
+      <MENU_INSERTION nom="VIDEO" type_noeud="element"/>
+      <MENU_INSERTION nom="LEGENDE" type_noeud="element"/>
+      <MENU_INSERTION nom="APPLET" type_noeud="element"/>
+      <MENU_INSERTION nom="PARAM" type_noeud="element"/>
+      <MENU_INSERTION nom="EMAIL" type_noeud="element"/>
+      <MENU_INSERTION nom="IDENTIFIANT" type_noeud="element"/>
+      <MENU_INSERTION nom="HTML" type_noeud="element"/>
+      
+    </MENU>
+    <MENU nom="Texte">
+      <MENU_INSERTION nom="EMPHASE" type_noeud="element"/>
+      <MENU_INSERTION nom="LIEN_EXTERNE" type_noeud="element"/>
+      <MENU_INSERTION nom="LIEN_INTERNE" type_noeud="element"/> 
+      <MENU_INSERTION nom="CODE" raccourci="P" type_noeud="element"/>
+      <MENU_INSERTION nom="CODE_COLS" type_noeud="element"/>
+      <MENU_INSERTION nom="ESP" type_noeud="element"/>
+      <MENU_INSERTION nom="BR" type_noeud="element"/>
+      <MENU_INSERTION nom="EQUATION" raccourci="E" type_noeud="element"/>
+    </MENU>
+  </MENUS>
+  
+  <AFFICHAGE_NOEUDS>
+    <AFFICHAGE_ELEMENT element="EAST" type="division"/>
+    
+    <AFFICHAGE_ELEMENT element="METADONNEES" type="formulaire"/>
+  
+  
+     <AFFICHAGE_ELEMENT element="PREFERENCES" type="division"/>
+     
+     <AFFICHAGE_ELEMENT element="COMMENTAIRES" type="typesimple"/>
+    <AFFICHAGE_ELEMENT element="IMPRESSION" type="typesimple"/>
+    <AFFICHAGE_ELEMENT element="BARRE_BOUTONS" type="vide"/>
+    
+    <AFFICHAGE_ELEMENT element="PUCE" type="vide">
+<AFFICHAGE_ATTRIBUT attribut="colortexte"/>
+</AFFICHAGE_ELEMENT>
+   
+    
+    <AFFICHAGE_ELEMENT element="PAGE" type="vide"/>
+    
+    <AFFICHAGE_ELEMENT element="TITLE_PAGE" type="vide">
+<AFFICHAGE_ATTRIBUT attribut="font"/>
+</AFFICHAGE_ELEMENT>
+
+   
+    
+    <AFFICHAGE_ELEMENT element="TITLES" type="vide"/>
+
+ 
+    <AFFICHAGE_ELEMENT element="ENV" type="vide">
+<AFFICHAGE_ATTRIBUT attribut="titlefont"/>
+</AFFICHAGE_ELEMENT>
+
+
+    <AFFICHAGE_ELEMENT element="TABLES" type="zone"/>
+    
+    <AFFICHAGE_ELEMENT element="TAB_ENTETE" type="vide">
+<AFFICHAGE_ATTRIBUT attribut="font"/>
+</AFFICHAGE_ELEMENT>
+      
+    <AFFICHAGE_ELEMENT element="TAB_CORPS" type="vide">
+<AFFICHAGE_ATTRIBUT attribut="font"/>
+</AFFICHAGE_ELEMENT>
+    
+    
+    
+    
+    <AFFICHAGE_ELEMENT element="DATECRE" type="typesimple"/>
+    <AFFICHAGE_ELEMENT element="PAGE_TITRE" type="division"/>
+    <AFFICHAGE_ELEMENT element="TITRE" type="string">    
+      <PARAMETRE nom="style" valeur="GRAS"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="SOUS_TITRE" type="string">    
+      <PARAMETRE nom="style" valeur="GRAS"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="AUTEUR" type="string"/>
+    <AFFICHAGE_ELEMENT element="EMAIL" type="string"/>
+    <AFFICHAGE_ELEMENT element="IDENTIFIANT" type="zone"/>
+    <AFFICHAGE_ELEMENT element="DATE_EXPOSE" type="zone"/>
+    <AFFICHAGE_ELEMENT element="HTML" type="zone"/>
+    <AFFICHAGE_ELEMENT element="LOGO_GAUCHE" type="fichier">
+      <PARAMETRE nom="srcAtt" valeur="fichier"/>
+      <PARAMETRE nom="srcAtt" valeur="image_alternative"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="LOGO_DROIT" type="fichier">
+      <PARAMETRE nom="srcAtt" valeur="fichier"/>
+      <PARAMETRE nom="srcAtt" valeur="image_alternative"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="PIEDPAGE_GAUCHE" type="zone"/>
+    <AFFICHAGE_ELEMENT element="PIEDPAGE_DROIT" type="zone"/>
+    <AFFICHAGE_ELEMENT element="PARTIE" type="division"/>
+    <AFFICHAGE_ELEMENT element="SECTION" type="division"/>
+    <AFFICHAGE_ELEMENT element="PARAGRAPHE" type="zone"/>
+    <AFFICHAGE_ELEMENT element="EXEMPLE" type="zone">
+      <PARAMETRE nom="police" valeur="Monospaced"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="LISTE" type="liste">
+      
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="EL" type="item"/>
+    <AFFICHAGE_ELEMENT element="LISTEDEF" type="zone"/>
+    <AFFICHAGE_ELEMENT element="TERME" type="string"/>
+    <AFFICHAGE_ELEMENT element="DEF" type="string"/>
+    <AFFICHAGE_ELEMENT element="TABLEAU" type="tabletexte">
+      <PARAMETRE nom="trTag" valeur="LT"/>
+      <PARAMETRE nom="tdTag" valeur="CT"/>
+      <PARAMETRE nom="thTag" valeur="ET"/>
+      <PARAMETRE nom="colspanAttr" valeur="colspan"/>
+      <PARAMETRE nom="rowspanAttr" valeur="rowspan"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="LT" type="zone"/>
+    <AFFICHAGE_ELEMENT element="ET" type="string">
+<AFFICHAGE_ATTRIBUT attribut="font"/>
+</AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="CT" type="zone">
+<AFFICHAGE_ATTRIBUT attribut="font"/>
+</AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="ENVIMAGE" type="zone">
+<AFFICHAGE_ATTRIBUT attribut="font"/>
+</AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="IMAGE" type="fichier">
+      <PARAMETRE nom="srcAtt" valeur="fichier"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="ENVIDEO" type="zone">
+<AFFICHAGE_ATTRIBUT attribut="font"/>
+</AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="VIDEO" type="fichier">
+      <PARAMETRE nom="srcAtt" valeur="fichier"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="LEGENDE" type="zone"/>
+    <AFFICHAGE_ELEMENT element="APPLET" type="zone">
+      <PARAMETRE nom="titreAtt" valeur="classe"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="PARAM" type="vide">
+      <PARAMETRE nom="titreAtt" valeur="nom"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="EMPHASE" type="string">
+      <PARAMETRE nom="style" valeur="ITALIQUE"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="LIEN_EXTERNE" type="string"/>
+    <AFFICHAGE_ELEMENT element="LIEN_INTERNE" type="string"/>
+    <AFFICHAGE_ELEMENT element="CODE" type="string">
+      <PARAMETRE nom="police" valeur="Monospaced"/>
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="CODE_COLS" type="zone">
+      <PARAMETRE nom="police" valeur="Monospaced"/>
+      
+    </AFFICHAGE_ELEMENT>
+    <AFFICHAGE_ELEMENT element="ESP" type="vide"/>
+    <AFFICHAGE_ELEMENT element="BR" type="vide"/>
+    <AFFICHAGE_ELEMENT element="EQUATION" type="equation">
+      <PARAMETRE nom="texteAtt" valeur="texte"/>
+      <PARAMETRE nom="srcAtt" valeur="image"/>
+    </AFFICHAGE_ELEMENT>
+ 
+<AFFICHAGE_ELEMENT element="COMMENTAIRE" type="string"/>
+</AFFICHAGE_NOEUDS>
+  
+  <EXPORTS>
+    <EXPORT nom="HTML" sortie="HTML">
+      <FICHIER_XSL nom="EAST.xsl"/>
+    </EXPORT>
+  </EXPORTS>
+  
+  <STRINGS langue="fr">
+        
+    <DESCRIPTION_CONFIG>Exposé</DESCRIPTION_CONFIG>
+    
+    <STRINGS_MENU menu="TERME">
+      <TITRE>Terme de liste de définitions</TITRE>
+    </STRINGS_MENU>
+    <STRINGS_MENU menu="DEF">
+      <TITRE>Définition de liste de définitions</TITRE>
+    </STRINGS_MENU>
+    <STRINGS_MENU menu="ESP">
+      <TITRE>Espace insécable</TITRE>
+    </STRINGS_MENU>
+    
+    <STRINGS_MENU menu="Organisation"/>
+<STRINGS_MENU menu="Ensembles"/>
+<STRINGS_MENU menu="Texte"/>
+<STRINGS_ELEMENT element="EAST">
+      <TITRE>EAST</TITRE>
+          <STRINGS_ATTRIBUT attribut="transition">
+            <TITRE>Type de transition</TITRE>
+          </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="METADONNEES">
+      <TITRE>Métadonnées</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PREFERENCES">
+      <TITRE>Préférences</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="BARRE_BOUTONS">
+      <TITRE>Barre de boutons</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="COMMENTAIRES">
+      <TITRE>Commentaires</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="IMPRESSION">
+      <TITRE>Impression</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="PUCE">
+      <TITRE>Puces des listes</TITRE>
+    <STRINGS_ATTRIBUT attribut="level">
+<TITRE>Niveau</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="type">
+<TITRE>Type</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="color">
+<TITRE>Couleur</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="colorpuce">
+<TITRE>Couleur de puce</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="colortexte">
+<TITRE>Couleur du texte</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PAGE">
+      <TITRE>Page</TITRE>
+    <STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Couleur du texte</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Couleur de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="linkcolor">
+<TITRE>Couleur des liens</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Police de caractère</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="TITLES">
+  
+      <TITRE>Titres</TITRE>
+      
+    <STRINGS_ATTRIBUT attribut="textcolor">
+      <TITRE>Couleur des textes</TITRE>
+    </STRINGS_ATTRIBUT>
+    
+    <STRINGS_ATTRIBUT attribut="backcolor">
+      <TITRE>Couleur de fond</TITRE>
+    </STRINGS_ATTRIBUT>
+  
+    <STRINGS_ATTRIBUT attribut="image">
+      <TITRE>Image de fond</TITRE>
+    </STRINGS_ATTRIBUT>
+  
+    <STRINGS_ATTRIBUT attribut="font">
+      <TITRE>Police de caractères</TITRE>
+    </STRINGS_ATTRIBUT>
+    
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="ENV">
+      <TITRE>Environnements</TITRE>
+    <STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Couleur des textes</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Couleur de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Police de caractères</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titlecolor">
+<TITRE>Couleur du titre</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titleback">
+<TITRE>Couleur de fond du titre</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titlefont">
+<TITRE>Police des titres</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TABLES">
+      <TITRE>Tables</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TAB_ENTETE">
+      <TITRE>Entêtes des tables</TITRE>
+    <STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Couleur des textes</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Couleur de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Police de caractères</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TAB_CORPS">
+      <TITRE>Corps des tables</TITRE>
+    <STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Couleur des textes</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Couleur de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Police de caractères</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="DATECRE">
+      <TITRE>Date de création</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PAGE_TITRE">
+      <TITRE>Page de titre</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TITRE">
+      <TITRE>Titre</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="SOUS_TITRE">
+      <TITRE>Sous Titre</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="EMAIL">
+      <TITRE>Courriel</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="DATE_EXPOSE">
+      <TITRE>Date de l'exposé</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="HTML">
+      <TITRE>Code HTML</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="IDENTIFIANT">
+      <TITRE>Identifiant de l'exposé</TITRE>
+      <STRINGS_ATTRIBUT attribut="TYPE">
+        <TITRE>Classe de l'exposé</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="AUTEUR">
+      <TITRE>Auteur</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="LOGO_GAUCHE">
+      <TITRE>Logo Gauche</TITRE>
+      <STRINGS_ATTRIBUT attribut="fichier">
+        <TITRE>fichier</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="image_alterantive">
+        <TITRE>image alternative</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="largeur_SVG">
+        <TITRE>Largeur en % ( pour SVG )</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="hauteur_SVG">
+        <TITRE>Hauteur en % ( pour SVG )</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LOGO_DROIT">
+      <TITRE>Logo Droit</TITRE>
+      <STRINGS_ATTRIBUT attribut="fichier">
+        <TITRE>fichier</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="image_alterantive">
+        <TITRE>image alternative</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="largeur_SVG">
+        <TITRE>Largeur en % ( pour SVG )</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="hauteur_SVG">
+        <TITRE>Hauteur en % ( pour SVG )</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PIEDPAGE_DROIT">
+      <TITRE>Pied de page droit</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PIEDPAGE_GAUCHE">
+      <TITRE>Pied de page gauche</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="PARAGRAPHE">
+      <TITRE>Paragraphe</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="PARTIE">
+      <TITRE>Partie</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="SECTION">
+      <TITRE>Section</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PARAGRAPHE">
+      <TITRE>Paragraphe</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="EXEMPLE">
+      <TITRE>Exemple</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LISTE">
+      <TITRE>Liste</TITRE>
+          <STRINGS_ATTRIBUT attribut="type">
+                <TITRE>Type d'item</TITRE>
+          </STRINGS_ATTRIBUT>
+          <STRINGS_ATTRIBUT attribut="couleur_puce">
+                <TITRE>Couleur de la puce</TITRE>
+          </STRINGS_ATTRIBUT>
+          <STRINGS_ATTRIBUT attribut="couleur_texte">
+                <TITRE>Couleur du texte</TITRE>
+          </STRINGS_ATTRIBUT>
+          <STRINGS_ATTRIBUT attribut="image_puce">
+                <TITRE>Image de la puce</TITRE>
+          </STRINGS_ATTRIBUT>
+          <STRINGS_ATTRIBUT attribut="mode">
+                <TITRE>Mode de présentation de la liste</TITRE>
+          </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="EL">
+          <TITRE>Elément de liste</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LISTEDEF">
+      <TITRE>Liste de définitions</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TERME">
+      <TITRE>Terme</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="DEF">
+      <TITRE>Définition</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TABLEAU">
+      <TITRE>Tableau</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LT">
+      <TITRE>Ligne de tableau</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="ET">
+      <TITRE>Cellule entête de tableau</TITRE>
+    <STRINGS_ATTRIBUT attribut="colspan">
+<TITRE>Etalement colonnes</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Couleur des textes</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Couleur de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Police de caracteres</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="CT">
+      <TITRE>Cellule de tableau</TITRE>
+    <STRINGS_ATTRIBUT attribut="rowspan">
+<TITRE>Etalement rangee</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="colspan">
+<TITRE>Etalement colonnes</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Couleur des textes</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Couleur du fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Police de caracteres</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="ENVIMAGE">
+      <TITRE>Environnement d'image</TITRE>
+    <STRINGS_ATTRIBUT attribut="titlecolor">
+<TITRE>Couleur du titre</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titlefont">
+<TITRE>Police du titre</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titleback">
+<TITRE>Couleur de fond du titre</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Couleur de la légende</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Couleur de fond de la légende</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Police de la légende</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="IMAGE">
+      <TITRE>Image</TITRE>
+      <STRINGS_ATTRIBUT attribut="fichier">
+        <TITRE>fichier</TITRE>
+        <STRINGS_ATTRIBUT attribut="largeur">
+          <TITRE>Largeur (%)</TITRE>
+        </STRINGS_ATTRIBUT>
+        <STRINGS_ATTRIBUT attribut="hauteur">
+          <TITRE>Hauteur (%)</TITRE>
+        </STRINGS_ATTRIBUT>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="ENVIDEO">
+      <TITRE>Environnement d'une video</TITRE>
+    <STRINGS_ATTRIBUT attribut="titlecolor">
+<TITRE>Couleur du titre</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titlefont">
+<TITRE>Police du titre</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titleback">
+<TITRE>Couleur de fond du titre</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Couleur de la légende</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Couleur de fond </TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Police de la légende</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="VIDEO">
+      <TITRE>Video</TITRE>
+      <STRINGS_ATTRIBUT attribut="fichier">
+        <TITRE>fichier</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="largeur">
+        <TITRE>Largeur (%)</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="hauteur">
+        <TITRE>Hauteur (%)</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="controls">
+        <TITRE>Barre de controle</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="LEGENDE">
+      <TITRE>Légende</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="APPLET">
+      <TITRE>Applet</TITRE>
+      <STRINGS_ATTRIBUT attribut="classe">
+        <TITRE>classe</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="largeur">
+        <TITRE>largeur</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="hauteur">
+        <TITRE>hauteur</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PARAM">
+      <TITRE>Paramêtre d'applet</TITRE>
+      <STRINGS_ATTRIBUT attribut="nom">
+        <TITRE>nom</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="valeur">
+        <TITRE>valeur</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="EMPHASE">
+      <TITRE>Emphase</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LIEN_INTERNE">
+      <TITRE>Lien Interne</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LIEN_EXTERNE">
+      <TITRE>Lien externe</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="CODE">
+      <TITRE>Code</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="CODE_COLS">
+          <TITRE>Code en colonnes</TITRE>
+          <STRINGS_ATTRIBUT attribut="nbcols">
+                <TITRE>Nombre de colonnes</TITRE>
+          </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="ESP">
+      <TITRE>Esp</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="BR">
+      <TITRE>Saut de ligne</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="EQUATION">
+      <TITRE>Equation</TITRE>
+      <STRINGS_ATTRIBUT attribut="texte">
+        <TITRE>texte</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="COMMENTAIRE">
+      <TITRE>Commentaire</TITRE>
+    </STRINGS_ELEMENT>
+    
+  <STRINGS_EXPORT export="HTML"/>
+  
+<STRINGS_ELEMENT element="TITLE_PAGE">
+  <TITRE>Page de titre</TITRE>
+
+<STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Couleur des textes</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Couleur de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="linkcolor">
+<TITRE>Couleur des liens</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image de fond</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Police de caractères</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+</STRINGS>
+  
+  <STRINGS langue="en">
+    <DESCRIPTION_CONFIG>Slide Show</DESCRIPTION_CONFIG>
+    
+    <STRINGS_MENU menu="ESP">
+      <TITRE>Non-breaking space</TITRE>
+    </STRINGS_MENU>
+    
+    <STRINGS_MENU menu="Organisation"/>
+<STRINGS_MENU menu="Ensembles"/>
+<STRINGS_MENU menu="Texte"/>
+<STRINGS_ELEMENT element="EAST">
+      <TITRE>EAST</TITRE>
+          <STRINGS_ATTRIBUT attribut="transition">
+            <TITRE>Transition type</TITRE>
+          </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="METADONNEES">
+      <TITRE>Metadata</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PREFERENCES">
+      <TITRE>Options</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="PREFERENCES">
+      <TITRE>Preferences</TITRE>
+    </STRINGS_ELEMENT>
+ 
+
+    <STRINGS_ELEMENT element="BARRE_BOUTONS">
+      <TITRE>Buttons Toolbar</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="POLICE_TEXTE">
+      <TITRE>Text Font</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="COMMENTAIRES">
+      <TITRE>Comments</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="IMPRESSION">
+      <TITRE>Printing</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="PUCE">
+      <TITRE>List Items</TITRE>
+    <STRINGS_ATTRIBUT attribut="level">
+<TITRE>Level</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="type">
+<TITRE>Type</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="color">
+<TITRE>Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="colorpuce">
+<TITRE>Item color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="colortexte">
+<TITRE>Text Color</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PAGE">
+      <TITRE>Page</TITRE>
+    <STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Text Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Background color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="linkcolor">
+<TITRE>Link Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Background Image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Text Font</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TITLES">
+      <TITRE>Titles</TITRE>
+    <STRINGS_ATTRIBUT attribut="textcolor"/>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="ENV">
+      <TITRE>Environments</TITRE>
+    <STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Text Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Background color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Background Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Text Font</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titlecolor">
+<TITRE>Title color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titleback">
+<TITRE>Title background color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titlefont">
+<TITRE>Title font</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TABLES">
+      <TITRE>Tables</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TAB_ENTETE">
+      <TITRE>Tables headings</TITRE>
+    <STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Text Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Background Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Backround Image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Text Font</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TAB_CORPS">
+      <TITRE>Tables Body</TITRE>
+    <STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Text Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Background Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Background Image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Text Font</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    
+   
+    
+  
+    <STRINGS_ELEMENT element="DATECRE">
+      <TITRE>Creation date</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PAGE_TITRE">
+      <TITRE>Title Page</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TITRE">
+      <TITRE>Title</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="SOUS_TITRE">
+      <TITRE>Sub title</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="EMAIL">
+      <TITRE>Email</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="DATE_EXPOSE">
+      <TITRE>Slideshow date</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="HTML">
+      <TITRE>HTML Code</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="IDENTIFIANT">
+      <TITRE>Identifiant</TITRE>
+      <STRINGS_ATTRIBUT attribut="TYPE">
+        <TITRE>Slideshow class</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="AUTEUR">
+      <TITRE>Author</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="LOGO_GAUCHE">
+      <TITRE>Left Logo</TITRE>
+      <STRINGS_ATTRIBUT attribut="fichier">
+        <TITRE>file</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="image_alternative">
+        <TITRE>Alternative picture</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="largeur_SVG">
+        <TITRE>Width in percentage  ( for SVG )</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="hauteur_SVG">
+        <TITRE>Height in percentage ( for SVG )</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LOGO_DROIT">
+      <TITRE>Right Logo</TITRE>
+      <STRINGS_ATTRIBUT attribut="fichier">
+        <TITRE>file</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="image_alterantive">
+        <TITRE>Alternative picture</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="largeur_SVG">
+        <TITRE>Width in percentage  ( for SVG )</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="hauteur_SVG">
+        <TITRE>Height in percentage ( for SVG )</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PIEDPAGE_DROIT">
+      <TITRE>Right Footnote</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PIEDPAGE_GAUCHE">
+      <TITRE>Left Footnote</TITRE>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="PARTIE">
+      <TITRE>Part</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="SECTION">
+      <TITRE>Section</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="PARAGRAPHE">
+      <TITRE>Paragraph</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="EXEMPLE">
+      <TITRE>Example</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LISTE">
+      <TITRE>List</TITRE>
+      <STRINGS_ATTRIBUT attribut="type">
+        <TITRE>Item type</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="couleur_puce">
+        <TITRE>Item color</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="couleur_texte">
+        <TITRE>Item text color</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="image_puce">
+        <TITRE>Item image</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="mode">
+        <TITRE>Display Mode List</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="EL">
+      <TITRE>List element</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LISTEDEF">
+      <TITRE>Definition list</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TERME">
+      <TITRE>Term</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="DEF">
+      <TITRE>Definition</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="TABLEAU">
+      <TITRE>Table</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LT">
+      <TITRE>Table row</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="ET">
+      <TITRE>Table header cell</TITRE>
+    <STRINGS_ATTRIBUT attribut="colspan">
+<TITRE>colspan</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Text Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Background color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Background Image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Text Font</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="CT">
+      <TITRE>Table cell</TITRE>
+    <STRINGS_ATTRIBUT attribut="rowspan">
+<TITRE>rowspan</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="colspan">
+<TITRE>colspan</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Text Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Background color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Background Image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Text Font</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="ENVIMAGE">
+      <TITRE>Image environment</TITRE>
+    <STRINGS_ATTRIBUT attribut="titlecolor">
+<TITRE>Title Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titlefont">
+<TITRE>Title Font</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titleback">
+<TITRE>Title Background Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Legend color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Legend Background Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Background Image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Legend font</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="IMAGE">
+      <TITRE>Image</TITRE>
+      <STRINGS_ATTRIBUT attribut="fichier">
+        <TITRE>file</TITRE>
+        <STRINGS_ATTRIBUT attribut="largeur">
+          <TITRE>Width (%)</TITRE>
+        </STRINGS_ATTRIBUT>
+        <STRINGS_ATTRIBUT attribut="hauteur">
+          <TITRE>Height (%)</TITRE>
+        </STRINGS_ATTRIBUT>
+        
+        <STRINGS_ELEMENT element="ENVIDEO">
+          <TITRE>Video environment</TITRE>
+        </STRINGS_ELEMENT>
+        <STRINGS_ELEMENT element="VIDEO">
+          <TITRE>Video</TITRE>
+          <STRINGS_ATTRIBUT attribut="fichier">
+            <TITRE>file</TITRE>
+          </STRINGS_ATTRIBUT>
+          <STRINGS_ATTRIBUT attribut="largeur">
+            <TITRE>Width (%)</TITRE>
+          </STRINGS_ATTRIBUT>
+          <STRINGS_ATTRIBUT attribut="hauteur">
+            <TITRE>Height (%)</TITRE>
+          </STRINGS_ATTRIBUT>
+          <STRINGS_ATTRIBUT attribut="controls">
+            <TITRE>Control bar</TITRE>
+          </STRINGS_ATTRIBUT>
+        </STRINGS_ELEMENT>
+        
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LEGENDE">
+      <TITRE>Legend</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="APPLET">
+      <TITRE>Applet</TITRE>
+      <STRINGS_ATTRIBUT attribut="classe">
+        <TITRE>class</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="largeur">
+        <TITRE>width</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="hauteur">
+        <TITRE>height</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    
+    <STRINGS_ELEMENT element="PARAM">
+      <TITRE>Applet parameter</TITRE>
+      <STRINGS_ATTRIBUT attribut="nom">
+        <TITRE>name</TITRE>
+      </STRINGS_ATTRIBUT>
+      <STRINGS_ATTRIBUT attribut="valeur">
+        <TITRE>value</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="EMPHASE">
+      <TITRE>Emphasis</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LIEN_INTERNE">
+      <TITRE>Internal Link</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="LIEN_EXTERNE">
+      <TITRE>External Link</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="CODE">
+      <TITRE>Code</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="CODE_COLS">
+      <TITRE>Code displayed in columns</TITRE>
+      <STRINGS_ATTRIBUT attribut="nbcols">
+        <TITRE>Number of columns</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="ESP">
+      <TITRE>NBSP</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="BR">
+      <TITRE>Line break</TITRE>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="EQUATION">
+      <TITRE>Equation</TITRE>
+      <STRINGS_ATTRIBUT attribut="texte">
+        <TITRE>text</TITRE>
+      </STRINGS_ATTRIBUT>
+    </STRINGS_ELEMENT>
+    <STRINGS_ELEMENT element="COMMENTAIRE">
+      <TITRE>Comment</TITRE>
+    </STRINGS_ELEMENT>
+    
+  <STRINGS_ELEMENT element="ENVIDEO">
+<STRINGS_ATTRIBUT attribut="titlecolor">
+<TITRE>Title Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titlefont">
+<TITRE>Title Font</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="titleback">
+<TITRE>Title Background Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Background Image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Legend Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Background Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Legend Font</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+<STRINGS_ELEMENT element="VIDEO"/>
+<STRINGS_EXPORT export="HTML"/>
+<STRINGS_ELEMENT element="TITLE_PAGE">
+  <TITRE>Page de titre</TITRE>
+<STRINGS_ATTRIBUT attribut="textcolor">
+<TITRE>Title Color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="backcolor">
+<TITRE>Background color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="linkcolor">
+<TITRE>Link color</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="image">
+<TITRE>Background image</TITRE>
+</STRINGS_ATTRIBUT>
+<STRINGS_ATTRIBUT attribut="font">
+<TITRE>Text Font</TITRE>
+</STRINGS_ATTRIBUT>
+</STRINGS_ELEMENT>
+</STRINGS>
+</CONFIG_JAXE>
