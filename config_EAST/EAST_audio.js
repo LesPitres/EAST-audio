@@ -28,11 +28,13 @@ var pushEvent = function(event, id_video){
 				current == videoEvents[videoEvents.length-2].current_time && 
 				id_video == videoEvents[videoEvents.length-2].id_video ) {
 				
+				interval = videoEvents[videoEvents.length-2].time;
 				videoEvents.pop();
 				videoEvents.pop();
 				
 			}else{ // if pause seek play, only pop pause
-				
+			
+				interval = videoEvents[videoEvents.length-1].time;
 				videoEvents.pop();
 				seek = true;	
 			}
@@ -42,6 +44,7 @@ var pushEvent = function(event, id_video){
 			current == videoEvents[videoEvents.length-2].current_time && 
 			id_video == videoEvents[videoEvents.length-2].id_video){
 			
+			interval = videoEvents[videoEvents.length-2].time;
 			videoEvents.pop();
 			videoEvents.pop();
 		}
