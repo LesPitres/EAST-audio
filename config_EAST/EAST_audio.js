@@ -1,55 +1,55 @@
 (function(){
 
-var sessionEvents = [],           // session events list
-    sessionLastEventTime = null,  // absolute time of last event
+var videoEvents = [],           // session events list
+    videoLastEventTime = null,  // absolute time of last event
     sessionIsRecording = false,   // are we recording or playing a session ?
 	seek = false;
 	
 // save an event		
 var pushEvent = function(event, id_video){
 	var eventTime = (new Date()).getTime(),
-      interval = eventTime - sessionLastEventTime;
+      interval = eventTime - videoLastEventTime;
 	
 	var current = document.getElementsByTagName("video")[id_video].currentTime;
 	
-	sessionLastEventTime = eventTime;
+	videoLastEventTime = eventTime;
 	
 	//for seeked when video is playing, 3 events : pause, seeked and play
-	// only keep seek in sessionEvents
+	// only keep seek in videoEvents
 	
-	if(sessionEvents.length > 1){
+	if(videoEvents.length > 1){
 		// when pause, seek and play or play, pause and seek
-		if (event === 'video_seek' && sessionEvents[sessionEvents.length-1].type === 'video_pause' && 
-			current == sessionEvents[sessionEvents.length-1].current_time && 
-			id_video == sessionEvents[sessionEvents.length-1].id_video ) {
+		if (event === 'video_seek' && videoEvents[videoEvents.length-1].type === 'video_pause' && 
+			current == videoEvents[videoEvents.length-1].current_time && 
+			id_video == videoEvents[videoEvents.length-1].id_video ) {
 			
 			// if play pause seek, pop play and pause
-			if (sessionEvents[sessionEvents.length-2].type === 'video_play' && 
-				current == sessionEvents[sessionEvents.length-2].current_time && 
-				id_video == sessionEvents[sessionEvents.length-2].id_video ) {
+			if (videoEvents[videoEvents.length-2].type === 'video_play' && 
+				current == videoEvents[videoEvents.length-2].current_time && 
+				id_video == videoEvents[videoEvents.length-2].id_video ) {
 				
-				sessionEvents.pop();
-				sessionEvents.pop();
+				videoEvents.pop();
+				videoEvents.pop();
 				
 			}else{ // if pause seek play, only pop pause
 				
-				sessionEvents.pop();
+				videoEvents.pop();
 				seek = true;	
 			}
 			
 		// when pause, play and seek
-		} else if(event === 'video_seek' && sessionEvents[sessionEvents.length-2].type === 'video_pause' && 
-			current == sessionEvents[sessionEvents.length-2].current_time && 
-			id_video == sessionEvents[sessionEvents.length-2].id_video){
+		} else if(event === 'video_seek' && videoEvents[videoEvents.length-2].type === 'video_pause' && 
+			current == videoEvents[videoEvents.length-2].current_time && 
+			id_video == videoEvents[videoEvents.length-2].id_video){
 			
-			sessionEvents.pop();
-			sessionEvents.pop();
+			videoEvents.pop();
+			videoEvents.pop();
 		}
 	}
 	if(event === 'video_play' && seek == true){
 		seek = false;
 	}else{
-		sessionEvents.push({
+		videoEvents.push({
 			type: event,
 			id_video: id_video,
 			time: interval,
@@ -72,13 +72,13 @@ var sessionAudioToXml = function(){
 	
 	doc.lastChild.appendChild(doc.createTextNode('\n'));
 	
-	for (var _e=0; _e<sessionEvents.length; _e+=1) {
+	for (var _e=0; _e<videoEvents.length; _e+=1) {
 		var e = doc.createElement('video_event');
-		e.setAttribute('type', sessionEvents[_e].type);
-		e.setAttribute('time', sessionEvents[_e].time);
-		e.setAttribute('id_video', sessionEvents[_e].id_video);
-		if(sessionEvents[_e].type === 'video_seek')
-			e.setAttribute('current_time', sessionEvents[_e].current_time);
+		e.setAttribute('type', videoEvents[_e].type);
+		e.setAttribute('time', videoEvents[_e].time);
+		e.setAttribute('id_video', videoEvents[_e].id_video);
+		if(videoEvents[_e].type === 'video_seek')
+			e.setAttribute('current_time', videoEvents[_e].current_time);
 		
 		doc.lastChild.appendChild(e);
 		doc.lastChild.appendChild(doc.createTextNode('\n'));
@@ -104,13 +104,16 @@ var eventCatchers = {
 
  
 VIDEO_RECORD = function(){
-  sessionLastEventTime = (new Date()).getTime();
+  videoLastEventTime = (new Date()).getTime();
   sessionIsRecording = true;
+  videoEvents = [];
   
   var videos = document.getElementsByTagName("video");
   for (var nb_i = 0; nb_i < videos.length; nb_i++){
 	//save current time at the beginning of videos
 	pushEvent('video_seek', nb_i);
+	if(!videos[nb_i].paused && videos[nb_i].currentTime != 0)
+		pushEvent('video_play', nb_i);
 	}
 }
 
