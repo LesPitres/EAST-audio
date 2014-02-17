@@ -75,13 +75,13 @@ var sessionAudioToXml = function(){
 	
 	doc.lastChild.appendChild(doc.createTextNode('\n'));
 	
-	for (var _e=0; _e<videoEvents.length; _e+=1) {
+	for (var i=0; i<videoEvents.length; i++) {
 		var e = doc.createElement('video_event');
-		e.setAttribute('type', videoEvents[_e].type);
-		e.setAttribute('time', videoEvents[_e].time);
-		e.setAttribute('id_video', videoEvents[_e].id_video);
-		if(videoEvents[_e].type === 'video_seek')
-			e.setAttribute('current_time', videoEvents[_e].current_time);
+		e.setAttribute('type', videoEvents[i].type);
+		e.setAttribute('time', videoEvents[i].time);
+		e.setAttribute('id_video', videoEvents[i].id_video);
+		if(videoEvents[i].type === 'video_seek')
+			e.setAttribute('current_time', videoEvents[i].current_time);
 		
 		doc.lastChild.appendChild(e);
 		doc.lastChild.appendChild(doc.createTextNode('\n'));
@@ -92,6 +92,21 @@ var sessionAudioToXml = function(){
                     window.btoa(page)
 				);
 }	
+var xmlToVideoEvents = function(xml){
+	var doc = (new DOMParser()).parseFromString(xml, "application/xml"),
+      events = doc.getElementsByTagName('video_event'),
+      session = [];
+
+	for (var i=0; i<events.length; i++) {
+		session.push({
+			  type: events[i].getAttribute('type'),
+			  id_video: events[i].getAttribute('id_video'),
+			  current_time: parseInt(events[i].getAttribute('current_time'), 10),
+			  time: parseInt(events[i].getAttribute('time'), 10)
+		});
+	}
+	return session;
+}
 				
 var eventCatchers = {
   video_seek: function(id_video){
@@ -105,6 +120,48 @@ var eventCatchers = {
   }	
  };
 
+var playback = {
+	_position: 0,
+	_lastTimeout: null,
+
+  play: function(){
+    playback._lastTimeout = null;
+    sessionIsRecording = false;
+    playback.walk();
+  },
+
+  walk: function(){
+	var videos = document.getElementsByTagName("video");
+    if (playback._position < videoEvents.length-1){
+      videoLastEventTime = (new Date()).getTime();
+      playback._lastTimeout = window.setTimeout(playback.walk,
+                                      videoEvents[playback._position+1].time);
+    }
+	id_vid = videoEvents[playback._position].id_video;
+
+    switch (videoEvents[playback._position].type){
+		case 'video_seek':
+			videos[id_vid].currentTime = videoEvents[playback._position].current_time;
+			break;
+		case 'video_play':
+			videos[id_vid].play();
+			break;
+		case 'video_pause':
+			videos[id_vid].pause();
+			break;
+      default:
+        console.error("EAST-session: unknown event type " +
+                      videoEvents[playback._position].type);
+    }
+    playback._position += 1;
+  }
+}
+ 
+VIDEO_PLAYBACK = function(xml){
+	videoEvents = xmlToVideoEvents(xml);
+	if (videoEvents.length && videoEvents.length>0)
+		playback.play();
+}
  
 VIDEO_RECORD = function(){
   videoLastEventTime = (new Date()).getTime();

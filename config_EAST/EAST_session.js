@@ -317,7 +317,8 @@ EVENTS.onSMILReady(function() {
     var reader = new FileReader();
     reader.onload = function(f){
       sessionEvents = xmlToSessionEvents(f.target.result);
-      playback.play();
+ 	  VIDEO_PLAYBACK(f.target.result);
+	  playback.play();
     };
     reader.readAsText(file);
   });
