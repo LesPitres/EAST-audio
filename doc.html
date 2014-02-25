@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="fr">
+<head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>EAST Audio</title>
+</head>
+<body style="margin: 1em 5% 1em 5%;" title="EAST Audio">
+<div>
+<div id="titre">
+<h2 style="color: purple; text-align: center">Am&eacute;lioration du syst&egrave;me de sauvegarde de session pour EAST avec synchronisation de l'audio</h2><hr>
+<h3 style="color: purple">Charlotte Saintpierre, Am&eacute;lie Lef&egrave;vre</h3>
+</div>
+<div id="corps">
+<br>
+<h2 style="color: purple">Etude de l'existant</h2>
+<p>
+Le projet EAST Audio repose sur deux pr&eacute;c&eacute;dents d&eacute;veloppements, il nous a donc fallu commencer par l'&eacute;tude de l'existant &agrave; savoir, l'&eacute;tude de <b>EAST</b> et <b>EAST-session</b>. <b>EAST</b> est un logiciel de pr&eacute;sentation d&eacute;velopp&eacute; par Didier Courtaud autour de <i>SMIL Timesheets</i> qui permet la transformation d'un plan en xml vers une pr&eacute;sentation dynamique html. <b>EAST-session</b> est un syst&egrave;me de session pour les pr&eacute;sentations EAST d&eacute;velopp&eacute; par Franck Nguyen et Alexandre Sicard. Il permet d'enregistrer la dynamique des pr&eacute;sentations EAST pour pouvoir les rejouer &agrave; n'importe quel moment.
+</p>
+<p>
+<b>EAST-Audio</b> consistant &agrave; ajouter une fonctionnalit&eacute; &agrave; ce syst&egrave;me de session afin d'y synchroniser l'audio/video avec les pr&eacute;sentations, nous nous sommes particuli&egrave;rement arr&ecirc;t&eacute;s sur le fonctionnement de EAST-session et avons pris le temps n&eacute;cessaire pour le comprendre. EAST-session est bas&eacute; sur l'enregistrement des &eacute;v&egrave;nements d'une pr&eacute;sentation (changement de slide, r&eacute;initialisation d'une slide ...), la cr&eacute;ation d'un document XML affichant ces enregistrements pour l'exportation et l'importation d'un fichier session XML afin de rejouer la pr&eacute;sentation.
+</p>
+<p>
+EAST-session repose uniquement sur du code JavaScript fortement li&eacute; &agrave; la biblioth&egrave;que timesheets. Nous avons repris les m&ecirc;mes principes pour l'enregistrement de l'audio afin de garder une coh&eacute;rence entre les deux projets.
+</p>
+</div>
+
+<div>
+<br>
+<h2 style="color: purple">Les &eacute;v&egrave;nements audio/videos</h2>
+<p>
+Apr&egrave;s avoir pris connaissance du fonctionnement de EAST-session et d&eacute;cid&eacute; de reprendre les m&ecirc;mes moyens pour enregistrer l'audio, nous avons donc cherch&eacute; quels &eacute;taient les &eacute;v&egrave;nements possibles des balises audio/video interessants &agrave; enregistrer. Nous avons selectionn&eacute; trois &eacute;v&egrave;nements qui nous paraissaient primordiaux :
+</p>
+<ul>
+<li>la lecture (d&eacute;finie par l'&eacute;v&egrave;nement <b>play</b>)</li>
+<li>la mise en pause (d&eacute;finie par l'&eacute;v&egrave;nement <b>pause</b>)</li>
+<li>le d&eacute;placement du curseur (d&eacute;fini par <b>seeked)</b></li>
+</ul>
+<p>
+Grace &agrave; des &eacute;couteurs sur les balises, nous pouvions r&eacute;cup&eacute;rer ces &eacute;v&egrave;nements. Il nous fallait ensuite garder ces &eacute;v&egrave;nements en m&eacute;moire pour pouvoir exporter la session synchronis&eacute;e avec l'audio.
+</p>
+</div>
+
+<div>
+<br>
+<h2 style="color: purple">Enregistrement des &eacute;v&egrave;nements</h2>
+<p>
+Pour l'enregistrement des &eacute;v&egrave;nements audio/video, nous avons utilis&eacute; le m&ecirc;me principe que pour l'enregistrement de session EAST, c'est-&agrave;-dire r&eacute;cup&eacute;rer les &eacute;v&egrave;nements grace &agrave; des &eacute;couteurs sur les balises, en faire des objets et les ajouter dans un tableau <i>videoEvents</i>. 
+</p>
+<p>
+Dans le tableau sont ainsi stock&eacute;s le type d'&eacute;v&egrave;nement, le num&eacute;ro de la video concern&eacute;e (puisqu'il peut y avoir plusieurs videos dans une m&ecirc;me pr&eacute;sentation, on doit savoir sur laquelle l'&eacute;v&egrave;nement a lieu), l'intervalle de temps depuis le dernier &eacute;v&egrave;nement video ainsi que, pour l'&eacute;v&egrave;nement <b>seeked</b>, la position du curseur.
+</p>
+<p>
+Au lancement d'un enregistrement de session (avec le bouton record session par exemple), nous enregistrons automatiquement un &eacute;v&egrave;nement pour chaque video de la pr&eacute;sentation afin de conna&icirc;tre la position du curseur de lecture sur chacune d'elle (il n'est pas obligatoirement positionn&eacute; au d&eacute;but de la video).
+</p>
+<h4>Particularit&eacute; de l'&eacute;v&egrave;nement seeked</h4>
+<p>
+L'&eacute;v&egrave;nement seeked est en r&eacute;alit&eacute; une succession d'&eacute;v&egrave;nement lorsque la video est en lecture : pause, seeked et play. Il fallait donc une gestion toute particuli&egrave;re afin de ne pas enregistrer les &eacute;v&egrave;nements pause et play dans ce cas car ils ne sont pas utiles pour la lecture de session.
+</p>
+</div>
+
+<div>
+<br>
+<h2 style="color: purple;">Export et import</h2>
+<p>
+Pour l'exportation de la session avec audio, nous avons cr&eacute;er un bouton &agrave; partir duquel nous appelons la fonction save() de l'API EAST-session qui permet de r&eacute;cup&eacute;rer le document XML cr&eacute;&eacute; contenant les &eacute;v&egrave;nements de EAST-session. A ce document, nous devions ajouter nos &eacute;l&eacute;ments li&eacute;s aux videos afin que l'utilisateur ait toutes les informations dans le m&ecirc;me document. Cela simplifie l'utilisation de EAST-session avec audio.
+</p>
+<p>
+Nous parcourons donc le document XML r&eacute;cup&eacute;r&eacute; et y ajoutons, pour chaque objet du tableau <i>videoEvents</i>, un n&#339;ud pr&eacute;sentant les attributs de l'objet concern&eacute;. Nous reprenons ensuite le principe de EAST-session et affichons ce nouveau document XML dans une nouvelle fen&ecirc;tre de navigation avec window.open. L'utilisateur est guid&eacute; pour r&eacute;cup&eacute;r&eacute; le fichier afin de lancer par la suite une lecture de session.
+</p>
+<p>
+En ce qui concerne l'importation de session avec audio, nous n'avons pas ajouter de bouton. Nous avons simplement ajouter une ligne dans le code de EAST-session afin d'appeler notre m&eacute;thode VIDEO_PLAYBACK de r&eacute;cup&eacute;ration des &eacute;v&egrave;nements videos. On reprend le m&ecirc;me principe que pour EAST-session : nous reconvertissons le fichier charg&eacute; en arborescence DOM afin d'acc&egrave;der &agrave; ses &eacute;lements. Nous le parcourons ensuite et pour chaque n&#339;ud video_event, nous enregistrons dans notre tableau d'&eacute;v&egrave;nements <i>videoEvents</i> l'objet repr&eacute;sentant cet &eacute;v&egrave;nement. Nous lan&ccedil;ons ensuite la lecture de session.
+</p>
+</div>
+
+<div>
+<br>
+<h2 style="color: purple;">Lecture de session avec audio</h2>
+<p>
+Nous avons en parall&egrave;le la lecture de EAST-session et celle de l'audio. Elle fonctionne en recr&eacute;ant la suite d'&eacute;v&egrave;nements stock&eacute;s dans le tableau. En fonction de l'&eacute;v&egrave;nement lu, nous appelons sur la video concern&eacute;e la fonction appropri&eacute;e, c'est-&agrave;-dire :
+</p>
+<ul>
+<li>play() pour l'&eacute;v&egrave;nement <b>play</b></li>
+<li>pause() pour l'&eacute;v&egrave;nement <b>pause</b></li>
+<li>d&eacute;placement du curseur sur la position souhait&eacute;e avec l'attribut currentTime pour l'&eacute;v&egrave;nement <b>seeked</b></li>
+</ul>
+<p>
+Lorsqu'un &eacute;v&egrave;nement est jou&eacute;, l'&eacute;v&egrave;nement suivant est programm&eacute; en suivant l'intervalle de temps gard&eacute; grace &agrave; la m&eacute;thode window.setTimeout &agrave; laquelle nous passons la fonction de lecture de l'&eacute;v&egrave;nement suivant et le temps &agrave; attendre avant de l'appeler.
+</p>
+<p>
+Puisque nous sommes en lecture de session et non pas en enregistrement, il fallait emp&ecirc;cher l'enregistrement des &eacute;v&egrave;nements que nous cr&eacute;ons. Ceci est possible grace &agrave; une simple variable bool&eacute;enne qui emp&ecirc;che ou non l'enregistrement des &eacute;v&egrave;nements.
+</p>
+</div>
+</div>
+</body>
+</html>
