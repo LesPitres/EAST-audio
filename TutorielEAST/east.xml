@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="ISO-8859-1"?><EAST transition="burst">
+<PREFERENCES>
+<AFFICHAGE>
+<POLICE_TEXTE font="Comic Sans MS"/>
+</AFFICHAGE>
+</PREFERENCES> <LOGO_GAUCHE fichier="CEA2012.svg" hauteur_SVG="100" largeur_SVG="100"/>
+<PIEDPAGE_GAUCHE>
+Tutoriel EAST
+</PIEDPAGE_GAUCHE>
+<PIEDPAGE_DROIT>
+8 Mars 2012
+</PIEDPAGE_DROIT>
+<PAGE_TITRE>
+<TITRE>EAST</TITRE><SOUS_TITRE>EAsy Slide Tool</SOUS_TITRE><AUTEUR>Didier COURTAUD</AUTEUR><EMAIL>didier.courtaud@cea.fr</EMAIL>
+</PAGE_TITRE>
+<PARTIE>
+<TITRE>Introduction</TITRE>
+<SECTION>
+<TITRE>Généralités</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>EAST ( EAsy Slide Tool) est un système de création, de présentation et d'impression de présentations basé sur XML et HTML</EL>
+<EL>C'est un système WYSIWM ( What you See Is What you Mean) par opposition aux systèmes classiques de présentation WYSIWYG ( What You See Is What You Get )</EL>
+<EL>Avantages des systèmes WYSIWYM
+<LISTE couleur_puce="orange" type="disc">
+<EL>Plus besoin de soucier de la mise en page</EL>
+<EL>L'orateur se concentre sur son contenu</EL>
+<EL>Son contenu est <EMPHASE>sémantisé</EMPHASE></EL>
+<EL>La présentation est homogène</EL>
+</LISTE>
+</EL>
+<EL>Avantages des systèmes basés sur HTML
+<LISTE couleur_puce="orange" type="disc">
+<EL>Directement visualisables par un navigateur Web</EL>
+<EL>Bénéficient de toutes les fonctionnalités de HTML : liens, multimédia, ...</EL>
+<EL>Installables sur n'importe quel site Web sans transformations</EL>
+<EL>Plus légers</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Généralités ( suite )</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>Les présentations EAST fonctionnent :
+<LISTE couleur_puce="orange" type="disc">
+
+<EL>Sur toutes les versions de Firefox depuis la 3.5</EL>
+<EL>Débuggage sous IE en cours</EL>
+<EL>Pas encore testées sous Google Chrome </EL>
+</LISTE>
+</EL>
+<EL>Elles utilisent
+<LISTE couleur_puce="orange" type="disc">
+<EL>HTML 5</EL>
+<EL>CSS 3</EL>
+<EL>Javascript</EL>
+</LISTE>
+</EL>
+
+</LISTE>
+</SECTION>
+</PARTIE>
+<PARTIE>
+<TITRE>Principes de fonctionnement</TITRE>
+<SECTION>
+<TITRE>Principes de base</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>EAST fonctionne à l'aide de 3 fichiers :
+<LISTE couleur_puce="orange" type="disc">
+<EL>Un fichier XML qui est la source de la présentation</EL>
+<EL>Un fichier XSLT qui va transformer le fichier XML précédant en fichier HTML</EL>
+<EL>Un fichier HTML servant à la présentation</EL>
+</LISTE>
+</EL>
+<EL>Le fichier XML est le <EMPHASE>coeur</EMPHASE> de la présentation
+<LISTE couleur_puce="orange" type="disc">
+<EL>C'est lui qui renferme le contenu</EL>
+<EL>C'est le seul à conserver absolument car, à partir de lui, on peut toujours régénérer la présentation </EL>
+<EL>Il obéit à un schéma XML qui définit les balises et les attributs sémantiques qui peuvent être utilisés</EL>
+<EL>Il peut être créé par n'importe quel éditeur de texte</EL>
+<EL>Une interface pour l'éditeur XML gratuit Jaxe est fournie pour aider à la saisie</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Principes de base ( suite )</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>Le fichier XSLT fabrique le fichier HTML selon les <EMPHASE>directives</EMPHASE> du fichier XML 
+<LISTE couleur_puce="orange" type="disc">
+<EL>Il est constitué une fois pour toutes par les développeurs de EAST</EL>
+<EL>Il renferme la mise en page commune des présentations</EL>
+<EL>Il assure la fabrication du fichier HTML
+<LISTE couleur_puce="green" type="circle">
+<EL>en appelant les librairies et feuilles de style nécessaires ( timesheets )</EL>
+<EL>en mettant en place tous les services : plan, navigation,impression</EL>
+</LISTE>
+</EL>
+</LISTE>
+</EL>
+<EL>Le fichier HTML sert à la présentation
+<LISTE couleur_puce="orange" type="disc">
+<EL>Il est visualisé par un navigateur Web classique</EL>
+<EL>Il fournit tous les services programmés par la feuille de style XSLT
+<LISTE couleur_puce="green" type="circle">
+<EL>Navigation</EL>
+<EL>Mise en page</EL>
+<EL>Impression</EL>
+</LISTE>
+</EL>
+<EL>Il peut être régénéré à volonté à partir du fichier XML</EL>
+</LISTE>
+</EL>
+
+</LISTE>
+</SECTION>
+</PARTIE>
+<PARTIE>
+<TITRE>Fonctionnalités offertes</TITRE>
+<SECTION>
+<TITRE>Vue d'ensemble</TITRE>
+<PARAGRAPHE>
+EAST fournit un ensemble de fonctionnalités permettant de mettre en page et d'animer les présentations.
+</PARAGRAPHE>
+<PARAGRAPHE>
+Elles peuvent se décomposer en plusieurs catégories
+</PARAGRAPHE>
+<LISTE couleur_puce="green" type="square">
+<EL>Des fonctionnalités de mise en page : couleurs, style, ..</EL>
+<EL>Des fonctionnalités d'animation : navigation entre slides, listes dynamiques</EL>
+<EL>Des fonctionnalités d'impression et de sauvegarde</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Fonctionnalités de mise en page</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>EAST permet de définir pour tous les slides
+<LISTE couleur_puce="orange" type="disc">
+<EL>des logos : en haut à gauche et/ou en haut à droite de chaque slide</EL>
+<EL>des pieds de page en bas à gauche et/ou en bas à droite de chaque slide</EL>
+</LISTE>
+</EL>
+<EL>EAST met en place automatiquement
+<LISTE couleur_puce="orange" type="disc">
+<EL>Un plan détaillé de la présentation</EL>
+<EL>Une numérotation des slides positionnée en bas au centre de chaque slide</EL>
+<EL>Des slides de séparation entre chaque <EMPHASE>PARTIE</EMPHASE></EL>
+</LISTE>
+</EL>
+<EL>EAST permet également de mettre du contenu en colonnes automatiquement quelque soit le nombre de colonnes</EL>
+<EL>EAST permet aussi de définir précisément liste par liste
+<LISTE couleur_puce="orange" type="disc">
+<EL>la couleur des puces de la liste</EL>
+<EL>ou l'image à utiliser comme puce</EL>
+<EL>la couleur du texte de l'item de liste</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Exemples de mise en page </TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>Liste à puce carrée verte et texte noir</EL>
+</LISTE>
+<LISTE couleur_puce="red" couleur_texte="maroon" type="disc">
+<EL>Liste à puce ronde rouge et texte marron</EL>
+</LISTE>
+<LISTE couleur_puce="purple" type="A">
+<EL>Différents types de puce possibles
+<LISTE couleur_puce="gray" type="1">
+<EL>Numérique grise
+<LISTE couleur_puce="aqua" couleur_texte="blue" type="i">
+<EL>Alphanumérique minuscule aqua et texte bleu</EL>
+</LISTE>
+</EL>
+<EL>De nouveau numérique grise</EL>
+</LISTE>
+</EL>
+</LISTE>
+<LISTE image_puce="Cea50x50.png" type="circle">
+<EL>Liste à puces de type image</EL>
+</LISTE>
+<PARAGRAPHE>
+<CODE_COLS nbcols="2">Voici du texte qui va être mis sur deux colonnes
+Cela s'applique aussi a d'autres types de contenus comme
+les images ou les morceaux de code
+</CODE_COLS>
+</PARAGRAPHE>
+<PARAGRAPHE>
+Enfin EAST permet d'utiliser des équations comme celle-ci : <EQUATION image="equations_east/equation1.png" texte="racine(x^2+y^2)=a/b"/>
+</PARAGRAPHE>
+</SECTION>
+<SECTION>
+<TITRE>Fonctionnalités d'animation</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>EAST propose deux grands types d'animation
+<LISTE couleur_puce="orange" type="disc">
+<EL>Transitions entre slides 
+<LISTE couleur_puce="green" type="circle">
+<EL>Elles interviennent dans toute navigation d'un slide à un autre que soit en séquence ou par accès direct</EL>
+</LISTE>
+</EL>
+<EL>Dynamique des listes
+<LISTE couleur_puce="green" type="circle">
+<EL>Cela permet de gérer la façon dont apparaissent les items des listes</EL>
+</LISTE>
+</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Les transitions</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>Ce sont en fait des transitions CSS3 définies dans les fichiers de configuration de EAST</EL>
+<EL>De ce fait, il faut utiliser des versions récentes des navigateurs pour que cela fonctionne ( &gt; 4 pour Firefox )</EL>
+<EL>Il est extrêmement simple d'en définir de nouvelles ( 10 lignes ; environ 10 minutes )</EL>
+<EL>Dans la version actuelle de EAST
+<LISTE couleur_puce="orange" type="disc">
+<EL>La transition est globale pour tous les slides</EL>
+<EL>Il existe 6 transitions possibles ( 5 définies par Fabien Cazenave et une par l'auteur )
+<LISTE couleur_puce="green" type="circle">
+<EL>crossfade : fondu enchainé statique</EL>
+<EL>fadethrough :fondu enchaîné dynamique</EL>
+<EL>carousel : défilement des slides sous forme de carrousel</EL>
+<EL>slide :défilement des slides en déplacement latéral</EL>
+<EL>toss :défilement des slides par rotation autour du point bas gauche</EL>
+<EL>burst: jaillissement des slides</EL>
+</LISTE>
+</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Dynamique des listes</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>Les items de liste peuvent être gérés de façon dynamique pour attirer l'attention des auditeurs</EL>
+<EL>Il existe plusieurs types de listes dynamiques possibles
+<LISTE couleur_puce="orange" type="disc">
+<EL>Listes accordéon
+<LISTE couleur_puce="green" type="circle">
+<EL>Un seul item est visible à un moment donné</EL>
+<EL>Le clic suivant masque cet item et affiche celui sur lequel on a cliqué</EL>
+</LISTE>
+</EL>
+<EL>Listes pliées
+<LISTE couleur_puce="green" type="circle">
+<EL>Les items sont masqués par défaut</EL>
+<EL>Ils ne se révèlent qu'au clic souris</EL>
+</LISTE>
+</EL>
+
+
+</LISTE>
+</EL>
+
+</LISTE>
+
+</SECTION>
+<SECTION>
+<TITRE>Dynamique des listes ( suite )</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>Listes incrémentales
+<LISTE couleur_puce="green" type="circle">
+<EL>simple : les items sont masqués et se révèlent les uns après les autres au clic souris</EL>
+<EL>ombré : même principe que la simple mais les items "passés" se voilent</EL>
+<EL>allumée : 
+<LISTE couleur_puce="orange" type="1">
+<EL>Au démarrage, les items sont masqués</EL>
+<EL>Le premier clic révéle toute la liste en ombré et le premier item passe en rouge</EL>
+<EL>Les autres clics laissent les items "passés" en noir et passe l'item courant en rouge</EL>
+</LISTE></EL>
+</LISTE>
+</EL>
+<EL>Listes progressives
+<LISTE couleur_puce="green" type="circle">
+<EL>Fonctionnement identique aux listes incrémentales</EL>
+<EL>Mais SANS clic souris : la liste se développe automatiquement</EL>
+</LISTE>
+</EL>
+<EL>Les slides suivants vous montrent des exemples de ces différentes listes</EL>
+</LISTE>
+</SECTION> <SECTION>
+<TITRE>Listes pliées</TITRE>
+<LISTE couleur_puce="blue" couleur_texte="maroon" mode="pliage" type="square">
+<EL>Premier item<LISTE couleur_texte="black" type="square">
+<EL>SS liste 1</EL>
+</LISTE>
+</EL>
+<EL>Deuxième item<LISTE type="square">
+<EL>ss liste 2</EL>
+</LISTE>
+</EL>
+<EL>Lien vers le transparent <LIEN_INTERNE num="3">3</LIEN_INTERNE></EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Liste accordéon</TITRE><LISTE couleur_puce="orange" mode="accordeon" type="disc">
+<EL>Acc 1
+<LISTE couleur_puce="blue" image_puce="/cea/home/s8/courtaud/TestsJaxe/Cea50x50.png" type="circle">
+<EL><LIEN_EXTERNE href="http://www.cea.fr">SS acc 1</LIEN_EXTERNE></EL>
+</LISTE>
+</EL>
+<EL>Acc2
+<LISTE type="circle">
+<EL>SS acc2</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Liste incrémentale</TITRE>
+<LISTE mode="incremental" type="disc"><TITRE>Titre liste incrémentale</TITRE>
+<EL>Element Inc 1
+<LISTE couleur_puce="green" type="square">
+<EL>Ss liste 1</EL>
+</LISTE>
+</EL>
+<EL>Element Inc 2
+<LISTE couleur_puce="green" type="square">
+<EL>Sous-liste 2</EL>
+</LISTE>
+</EL>
+<EL>Element Inc 3</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Liste incrémentale ombrée</TITRE>
+<LISTE couleur_puce="green" mode="incremental_ombre" type="disc">
+<EL>Je suis une liste ombrée
+<LISTE type="square">
+<EL>C'est à dire</EL>
+<EL>ou autrement dit</EL>
+</LISTE>
+</EL>
+
+<EL>Que mes items se voilent dès qu'ils ne sont plus actifs
+<LISTE type="square">
+<EL>Comme vous le voyez</EL>
+<EL>ou comme vous devriez le voir</EL>
+</LISTE>
+</EL>
+
+</LISTE>
+</SECTION>
+
+<SECTION>
+<TITRE>Liste incrémentale allumée</TITRE>
+<LISTE couleur_puce="purple" mode="incremental_allume" type="square"><TITRE>Essais de listes</TITRE>
+<EL>Ceci est une liste incrémentale allumée</EL>
+<EL>Cela veut dire
+<LISTE>
+<EL>Que tous les éléments s'allument séquentiellement en rouge au clic de la souris</EL>
+<EL>Que les éléments passés restent affichés en noir</EL>
+<EL>Que les éléments futurs sont visibles en opacité réduite</EL>
+</LISTE>
+</EL>
+<EL>Et ceci quelle que soit le niveau de profondeur de la liste
+<LISTE type="disc">
+<EL>1
+<LISTE type="circle">
+<EL>2
+<LISTE type="1">
+<EL>3
+<LISTE type="A">
+<EL>ou 4</EL>
+</LISTE>
+</EL>
+</LISTE>
+</EL>
+</LISTE>
+</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Liste progressive</TITRE>
+<LISTE couleur_puce="maroon" mode="progressif" type="circle">
+<EL>Et un
+<LISTE couleur_puce="blue" type="circle">
+<EL>un et demi</EL>
+</LISTE>
+</EL>
+<EL>Et deux<LISTE couleur_puce="green" type="square">
+<EL>deux et demi</EL>
+</LISTE>
+</EL>
+<EL>Et trois<LISTE couleur_puce="aqua" type="disc">
+<EL>Trois et demi</EL>
+</LISTE>
+</EL>
+<EL>Et quatre<LISTE couleur_puce="lime" type="A">
+<EL>quatre et demi</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Fonctionnalités de navigation</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>On peut naviguer entre les slides de différentes façons :
+<LISTE couleur_puce="orange" type="disc">
+<EL>par la souris</EL>
+<EL>par les raccourcis clavier</EL>
+<EL>par les boutons</EL>
+<EL>par le hash de l'URL</EL>
+</LISTE>
+</EL>
+<EL>Navigation à la souris
+<LISTE couleur_puce="orange" type="disc">
+<EL>La roulette de la souris permet d'avancer ou de reculer dans le diaporama</EL>
+</LISTE>
+</EL>
+<EL>Raccourcis clavier
+<LISTE couleur_puce="orange" type="disc">
+<EL>Flèche gauche - Flèche droite : Recule/Avance d'un slide</EL>
+<EL>PageUp - PageDown : Recule/Avance d'un slide</EL>
+<EL>Barre d'espacement : Avance d'un slide</EL>
+<EL>Home : Revient à la page titre</EL>
+<EL>Fin : Va à la dernière page</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Fonctionnalités de navigation ( suite )</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>Navigation grâce aux boutons
+<LISTE couleur_puce="orange" type="disc">
+<EL>La transformation XSLT crée automatiquement pour chaque slide cinq boutons de navigation positionnés en bas d'écran sous la page
+<LISTE couleur_puce="green" type="circle">
+<EL>|&lt;&lt; : Ramène à la page de titre</EL>
+<EL>&lt; prev : Slide précédent</EL>
+<EL>next&gt; : Slide suivant</EL>
+<EL>&gt;&gt;| : Va à la dernière page</EL>
+<EL>Plan : Ramène au plan général de la présentation qui a été créé automatiquement</EL>
+</LISTE>
+</EL>
+</LISTE>
+</EL>
+<EL>Navigation par le hash
+<LISTE couleur_puce="orange" type="disc">
+<EL>Chaque slide possède sa propre "adresse" ( hash en anglais) sous la forme ( nn désigne numéro du slide par exemple 03 )
+<LISTE couleur_puce="green" type="circle">
+<EL>mon-fichier.html#slidenn</EL>
+</LISTE>
+</EL>
+<EL>On peut donc donner au navigateur l'adresse du slide que l'on veut afficher sous la forme
+<LISTE couleur_puce="green" type="circle">
+<EL>mon-fichier.html#slide18 si on veut afficher le slide 18</EL>
+</LISTE>
+</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Fonctionnalités d'impression et de sauvegarde</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>EAST va utiliser le système d'impression et de sauvegarde du navigateur pour imprimer ou sauvegarder la présentation</EL>
+<EL>Il existe un bouton "Print" en bas à droite de la page sous le slide qui initie les fonctions suivantes
+<LISTE couleur_puce="orange" type="disc">
+<EL>Tous les slides sont visibles et sont mis à la queue leu leu</EL>
+<EL>Tous les boutons et les signes plus sont cachés</EL>
+<EL>Toutes les listes sont dépliées et affichées</EL>
+<EL>Le plan est ramené à sa forme simple</EL>
+</LISTE>
+</EL>
+<EL>Une fois cette opération effectuée, il suffit d'utiliser le système d'impression/sauvegarde du navigateur Web pour imprimer ou sauvegarder en PDF la présentation</EL>
+<EL>Pour revenir à la présentation, il suffit de demander au navigateur de recharger la page</EL>
+</LISTE>
+</SECTION>
+<SECTION>
+<TITRE>Fonctionnalités diverses</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>Gestion de la taille du texte
+<LISTE couleur_puce="orange" type="disc">
+<EL>Il existe des séquences de touche ou de souris communes à tous les navigateurs pour gérer la taille du texte ( accessibilité )
+<LISTE couleur_puce="green" type="circle">
+<EL>CTRL + Roulette de souris : Grossit/Réduit le texte</EL>
+<EL>CTRL + "+" : Grossit le texte</EL>
+<EL>CTRL+ "-" : Réduit le texte</EL>
+</LISTE>
+</EL>
+<EL>Dans la prochaine version de EAST, deux boutons "A++" et "A--" en bas d'écran sous la page permettront de grossir ou réduire le texte à la souris</EL>
+</LISTE>
+</EL>
+<EL>Liens : on peut faire des liens <EMPHASE>internes</EMPHASE> ( entre slides) ou des liens <EMPHASE>externes</EMPHASE> ( d'un slide vers un site Web )</EL>
+</LISTE>
+</SECTION>
+</PARTIE>
+<PARTIE>
+<TITRE>Développements à venir</TITRE>
+<SECTION>
+<TITRE>Dans la prochaine version</TITRE>
+<LISTE couleur_puce="green" type="square">
+<EL>Portage sur d'autres navigateurs Web
+<LISTE>
+<EL>Un bug de la librairie timesheets.js empêche le fichier HTML de EAST de tourner sous IE 9</EL>
+<EL>Il est en cours de correction</EL>
+<EL>Nous allons également tester le HTML de EAST sous les dernières versions de Google Chrome</EL>
+</LISTE>
+</EL>
+<EL>Possibilité de diffuser des présentations EAST sur un réseau
+<LISTE>
+<EL>L'idée est d'avoir un orateur qui "déroule" une présentation EAST sur son PC</EL>
+<EL>Les auditeurs suivent sa présentation sur leur propre navigateur qui tourne sur leur PC</EL>
+<EL>Prototype réalisé par mes étudiants à l'Université d'Evry quasi opérationnel</EL>
+<EL>Potentiellement utilisable sur Internet ( visioconférence)</EL>
+</LISTE>
+</EL>
+<EL>Faciliter le changement de thème
+<LISTE couleur_puce="orange" type="disc">
+<EL>Le thème actuel est "en dur" dans la feuille de transformation XSLT</EL>
+<EL>L'idée est de pouvoir facilement changer de thème de façon externe</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+</PARTIE>
+<PARTIE>
+<TITRE>Conclusion</TITRE>
+<SECTION>
+<TITRE>Conclusion</TITRE>
+<LISTE couleur_puce="green" mode="incremental_allume" type="square">
+<EL>EAST est un système très simple d'emploi qui permet de faire des présentations 
+<LISTE couleur_puce="orange" type="disc">
+<EL>dynamiques : puissance de HTML5, CSS et Javascript</EL>
+<EL>portables : n'importe quel navigateur Web</EL>
+<EL>personnalisables : tout est en Open Source et faciles à personnaliser</EL>
+<EL>facilement installables sur un serveur Web</EL>
+<EL>même jouables sur les smartphones B2G qui sortiront à la fin de l'année</EL>
+</LISTE>
+</EL>
+<EL>Quelques chiffres sur cette présentation pour illustrer la légèreté de la solution
+<LISTE couleur_puce="orange" type="disc">
+<EL>Fichier XML : ~ 31 koctets ; 481 lignes</EL>
+<EL>Fichier HTML : ~ 95 koctets ; 3970 lignes</EL>
+</LISTE>
+</EL>
+</LISTE>
+</SECTION>
+</PARTIE>
+</EAST>

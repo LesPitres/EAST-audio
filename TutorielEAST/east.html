@@ -1,0 +1,3760 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>EAST</title>
+<style type="text/css">
+/* Page */
+  
+
+body { background: #FFFFFF }
+h1 { text-align: center; font-size: 150%; font-family: sans-serif; color: #963232 }
+h2 { text-align: center; font-size: 110%; font-weight: bold; font-family: sans-serif; color: #963232 }
+h3 { font-size: 100%; font-weight: bold; font-family: serif; margin-bottom: 0.5em }
+h5 { text-align: center; font-size: 90%; font-weight: bold; font-family: serif; margin-bottom: 0.5em; color: #963232 }
+h6 { text-align: center; font-size: 70%; font-weight: bold; font-family: serif; margin-bottom: 0.5em; color: #963232 }
+.auteur { text-align: center }
+.date { text-align: left }
+.sommaire { page-break-after: always; background: #F5F5FF; margin: 0.5em; padding: 0.5em; border: gray outset }
+.cover { page-break-after: always; background: #F5F5FF; margin: 0.5em; padding: 0.5em; border: gray outset }
+.section { page-break-after: always; background: #FFFFEB; margin: 2em 0.5em; padding: 0.5em; border: gray outset }
+  
+      .slide { page-break-after: always; background: #FFFFEB; margin: 2em 0.5em; padding: 0.5em; border: gray outset }
+    
+/* Fin page */
+
+/* Page de titre */
+
+.pagetitre {
+  
+
+color:  ;
+
+}
+
+/* Fin Page de titre */
+
+/* Environnements d'image et de video */
+  
+
+.titreimage { text-align: center; font-weight: bold; background-color: #E0E0FF ;  ; color: black}
+.envimage { text-align: center; border: gray outset; padding: 0; margin: 1em; background: #EBFFEB }
+.legende { font-family: sans-serif; margin-top: 1em ; color: black}
+
+/* Fin environnements */
+  
+
+pre.code_xml { color: #963232 } ;
+pre { background: #EBFFEB; padding-left: 2em; padding-bottom: 0.5em }
+tt { color: #963232 ; font-family:  sans-serif}
+li { margin-bottom: 0.5em; }
+dt { font-weight: bold; }
+dd { margin-bottom: 0.5em; }
+.elsommaire { font-size: 110%; color: #963232 ; text-decoration: none; font-weight: bold }
+.elsommaire:hover { font-size: 110%; color: #663399; text-decoration: none; font-weight: bold }
+.elsommaire2 { font-size: 110%; color: #963232 ; text-decoration: none}
+.elsommaire2:hover { font-size: 110%; color: #663399; text-decoration: none }
+
+
+/* Tableaux */
+
+table#table_titre {
+height: 80%;
+margin-top: 10 %;
+margin-bottom: 10 %;
+width: 80%;
+margin-left: 10%;
+margin-right: 10%;
+}
+
+/* Entetes */
+  
+
+th {
+background: #FFF0E0 ;
+color: black ;
+
+}
+
+/* Corps des tableaux */
+  
+
+.tableau1 {
+background: #FFFAE0 ;
+color: black ;
+
+}
+.tableau2 {
+background: #FFFAE0 ;
+color: black ;
+
+}
+
+td.tiers { width: 33% }
+td.vingt { width: 20% }
+table.bas { position: absolute; bottom: 2% ; left:0 }
+
+/* Fin tableaux */
+  
+
+.commentaire {
+margin: 1em;
+color: #196419 ;
+}
+
+.equation { vertical-align : middle }
+  
+
+ul { margin-top: 0.5em }
+p { text-indent: 1em; text-align: justify; margin-top: 0.5em }
+.spanli { }
+
+p#navigation_par {text-indent: 1em; text-align: justify; margin-top: 0.5em ; background : none }
+p#text_size_par {text-indent: 1em; text-align: justify; margin-top: 0.5em ; background : none }
+
+
+  td.logogauche{  }
+
+
+tt.slidenumber { color : #963232 }
+
+
+  tt.piedgauche { color : #963232}
+
+  tt.pieddroit { color : #963232}
+
+
+/* Titres */
+
+td.soixante { width: 60% ; background :  }
+
+.slide_title  , .titrepartie , .titresommaire {
+  
+
+color : #963232 ;
+
+}
+
+/* Fin Titres */
+
+#slideshow div.slide {
+  position: absolute;
+  left: 10%;
+  top: 3%;
+  width:80%;
+  height:80%;
+}
+#slideshow div.print {
+  position: relative !important;
+}
+
+#slideshow div.image {
+align:center;
+}
+
+#slideshow div.moitie {
+  float:left;
+  width:50%;
+}
+
+#slideshow div.tiers {
+  float:left;
+  width:33%;
+}
+#slideshow div.quart {
+  float:left;
+  width:25%;
+}
+
+#navigation_par.print {
+  display: none;
+  opacity: 0;
+}
+
+#text_size_par.print {
+  display: none;
+  opacity: 0;
+}
+
+/* navigation menu */
+#slideshow .menu {
+  position: absolute;
+  /*bottom: 0;*/
+  /*right: 2em;*/
+  /*font-size: 0.75em;*/
+  bottom: 0%;
+  right: 9%;
+  margin: 0;
+  border-radius         : 0px;
+  -o-border-radius      : 0px;
+  -moz-border-radius    : 0px;
+  -webkit-border-radius : 0px;
+  box-shadow         : none;
+  -o-box-shadow      : none;
+  -moz-box-shadow    : none;
+  -webkit-box-shadow : none;
+  z-index: 2;
+}
+/* no transition for the menu! */
+#slideshow .menu {
+  opacity: 1 ;
+  visibility: visible ;
+}
+#slideshow .menu button {
+  opacity: 1;
+  transition         : none;
+  -o-transition      : none;
+  -moz-transition    : none;
+  -webkit-transition : none;
+}
+#slideshow .menu button[smil=idle] {
+  opacity: 0.5;
+  transform         : none;
+  -o-transform      : none;
+  -moz-transform    : none;
+  -webkit-transform : none;
+}
+
+/* text sizing menu */
+#slideshow .menuts {
+  position: absolute;
+  /*bottom: 0;*/
+  /*right: 2em;*/
+  /*font-size: 0.75em;*/
+  bottom: 0%;
+  left: 9%;
+  margin: 0;
+  border-radius         : 0px;
+  -o-border-radius      : 0px;
+  -moz-border-radius    : 0px;
+  -webkit-border-radius : 0px;
+  box-shadow         : none;
+  -o-box-shadow      : none;
+  -moz-box-shadow    : none;
+  -webkit-box-shadow : none;
+  z-index: 2;
+}
+/* no transition for the menu! */
+#slideshow .menuts {
+  opacity: 1 ;
+  visibility: visible ;
+}
+#slideshow .menuts button {
+  opacity: 1;
+  transition         : none;
+  -o-transition      : none;
+  -moz-transition    : none;
+  -webkit-transition : none;
+}
+#slideshow .menuts button[smil=idle] {
+  opacity: 0.5;
+  transform         : none;
+  -o-transform      : none;
+  -moz-transform    : none;
+  -webkit-transform : none;
+}
+
+/* Code en colonnes */
+
+div.code_cols {
+
+   column-gap: 1em;
+   -o-column-gap: 1em;
+   -moz-column-gap: 1em;
+   -webkit-column-gap: 1em;
+   column-rule:1px solid;
+   -o-column-rule:1px solid;
+   -moz-column-rule:1px solid;
+   -webkit-column-rule:1px solid;
+   color: #963232;
+   white-space:pre-wrap ;
+   word-wrap:break-word;
+}
+
+#slideshow div[smil="active"] {
+
+   display: block;
+}
+
+/*  Tous les slides et les boutons sont caches par defaut
+    pour verifier la presence du repertoire de configuration qui contient
+    le fichier CSS qui va les rendre visibles
+
+    Un slide d'erreur est affiche */
+
+#slideshow {
+
+  display: none;
+
+}
+
+p.menu {
+  display: none;
+}
+
+p.menuts {
+  display: none;
+}
+
+div#erreur {
+  display: block;
+
+  position: absolute;
+  left: 10%;
+  top: 3%;
+  width:80%;
+  height:80%;
+  background: #FFFFEB;
+  margin: 2em 0.5em;
+  padding: 0.5em;
+  border: gray outset
+}
+
+</style>
+<meta charset="UTF-8"/>
+<link href="config_EAST/EAST_transitions.css" type="text/css" rel="stylesheet"> </link>
+<link href="config_EAST/EAST.css" type="text/css" rel="stylesheet"> </link>
+<link href="config_EAST/EAST_config.css" type="text/css" rel="stylesheet"> </link>
+<link href="config_EAST/EAST.smil" type="application/smil+xml" rel="timesheet"> </link> <!--[if lt IE 9]> 
+<script src="config_EAST/lib/sizzle.js" type="text/javascript"/>
+<script src="config_EAST/lib/html5.js" type="text/javascript"/>
+<script src="config_EAST/lib/mediaelement.js" type="text/javascript"/> <![endif]--> 
+<script src="config_EAST/EAST.js" type="text/javascript"> </script>
+<script src="config_EAST/lib/timesheets.js" type="text/javascript"> </script>
+<script src="config_EAST/lib/timesheets-navigation.js" type="text/javascript"> </script>
+<script src="config_EAST/EAST_session.js" type="text/javascript"> </script>
+</head>
+<body style="font-size: 100%" class="burst">
+<div id="slideshow">
+<div id="cover" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td/>
+<td class="vingt logodroit" align="right">
+<tt/>
+</td>
+</tr>
+</table>
+<table id="table_titre">
+<tbody>
+<tr>
+<td>
+<h1 class="pagetitre">EAST</h1>
+</td>
+</tr>
+<tr>
+<td>
+<h2 class="pagetitre">EAsy Slide Tool</h2>
+</td>
+</tr>
+<tr>
+<td>
+<h5 class="pagetitre">Didier COURTAUD</h5>
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td>
+<h6 class="pagetitre">
+<tt>didier.courtaud@cea.fr</tt>
+</h6>
+</td>
+</tr>
+</tfoot>
+</table>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber"/>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="sommaire" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h1 class="titresommaire"> Plan </h1>
+</td>
+<td class="vingt" align="right">
+<tt/>
+</td>
+</tr>
+</table>
+<ul class="accordion">
+<li class="elsommaire">
+<span>Introduction<ul id="liste_sections">
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide1">Généralités</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide2">Généralités ( suite )</a>
+</span>
+</li>
+</ul>
+</span>
+</li>
+<li class="elsommaire">
+<span>Principes de fonctionnement<ul id="liste_sections">
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide3">Principes de base</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide4">Principes de base ( suite )</a>
+</span>
+</li>
+</ul>
+</span>
+</li>
+<li class="elsommaire">
+<span>Fonctionnalités offertes<ul id="liste_sections">
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide5">Vue d'ensemble</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide6">Fonctionnalités de mise en page</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide7">Exemples de mise en page </a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide8">Fonctionnalités d'animation</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide9">Les transitions</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide10">Dynamique des listes</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide11">Dynamique des listes ( suite )</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide12">Listes pliées</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide13">Liste accordéon</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide14">Liste incrémentale</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide15">Liste incrémentale ombrée</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide16">Liste incrémentale allumée</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide17">Liste progressive</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide18">Fonctionnalités de navigation</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide19">Fonctionnalités de navigation ( suite )</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide20">Fonctionnalités d'impression et de sauvegarde</a>
+</span>
+</li>
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide21">Fonctionnalités diverses</a>
+</span>
+</li>
+</ul>
+</span>
+</li>
+<li class="elsommaire">
+<span>Développements à venir<ul id="liste_sections">
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide22">Dans la prochaine version</a>
+</span>
+</li>
+</ul>
+</span>
+</li>
+<li class="elsommaire">
+<span>Conclusion<ul id="liste_sections">
+<li class="elsommaire2">
+<span>
+<a class="linkitem" href="#slide23">Conclusion</a>
+</span>
+</li>
+</ul>
+</span>
+</li>
+</ul>
+</div>
+<div id="partie1" class="slide">
+<table height="60%" width="100%">
+<tbody>
+<tr>
+<td>
+<h1 class="titrepartie">Introduction</h1>
+</td>
+</tr>
+</tbody>
+</table>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber"/>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide1" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Généralités</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l1110">
+<span class="spanli" id="s1110">EAST ( EAsy Slide Tool) est un système de création, de présentation et d'impression de présentations basé sur XML et HTML</span>
+</li>
+<script type="text/javascript">
+            var lil1110 = document.getElementById("l1110");
+            var spans1110 = document.getElementById("s1110");
+
+            lil1110.style.color = "green";
+
+            spans1110.style.color = "black";</script>
+<li class="li_class" id="l1111">
+<span class="spanli" id="s1111">C'est un système WYSIWM ( What you See Is What you Mean) par opposition aux systèmes classiques de présentation WYSIWYG ( What You See Is What You Get )</span>
+</li>
+<script type="text/javascript">
+            var lil1111 = document.getElementById("l1111");
+            var spans1111 = document.getElementById("s1111");
+
+            lil1111.style.color = "green";
+
+            spans1111.style.color = "black";</script>
+<li class="li_class" id="l1112">
+<span class="spanli" id="s1112">Avantages des systèmes WYSIWYM
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l1122">
+<span class="spanli" id="s1122">Plus besoin de soucier de la mise en page</span>
+</li>
+<script type="text/javascript">
+            var lil1122 = document.getElementById("l1122");
+            var spans1122 = document.getElementById("s1122");
+
+            lil1122.style.color = "orange";
+
+            spans1122.style.color = "black";</script>
+<li class="li_class" id="l1123">
+<span class="spanli" id="s1123">L'orateur se concentre sur son contenu</span>
+</li>
+<script type="text/javascript">
+            var lil1123 = document.getElementById("l1123");
+            var spans1123 = document.getElementById("s1123");
+
+            lil1123.style.color = "orange";
+
+            spans1123.style.color = "black";</script>
+<li class="li_class" id="l1124">
+<span class="spanli" id="s1124">Son contenu est <em>sémantisé</em>
+</span>
+</li>
+<script type="text/javascript">
+            var lil1124 = document.getElementById("l1124");
+            var spans1124 = document.getElementById("s1124");
+
+            lil1124.style.color = "orange";
+
+            spans1124.style.color = "black";</script>
+<li class="li_class" id="l1125">
+<span class="spanli" id="s1125">La présentation est homogène</span>
+</li>
+<script type="text/javascript">
+            var lil1125 = document.getElementById("l1125");
+            var spans1125 = document.getElementById("s1125");
+
+            lil1125.style.color = "orange";
+
+            spans1125.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil1112 = document.getElementById("l1112");
+            var spans1112 = document.getElementById("s1112");
+
+            lil1112.style.color = "green";
+
+            spans1112.style.color = "black";</script>
+<li class="li_class" id="l1117">
+<span class="spanli" id="s1117">Avantages des systèmes basés sur HTML
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l1127">
+<span class="spanli" id="s1127">Directement visualisables par un navigateur Web</span>
+</li>
+<script type="text/javascript">
+            var lil1127 = document.getElementById("l1127");
+            var spans1127 = document.getElementById("s1127");
+
+            lil1127.style.color = "orange";
+
+            spans1127.style.color = "black";</script>
+<li class="li_class" id="l1128">
+<span class="spanli" id="s1128">Bénéficient de toutes les fonctionnalités de HTML : liens, multimédia, ...</span>
+</li>
+<script type="text/javascript">
+            var lil1128 = document.getElementById("l1128");
+            var spans1128 = document.getElementById("s1128");
+
+            lil1128.style.color = "orange";
+
+            spans1128.style.color = "black";</script>
+<li class="li_class" id="l1129">
+<span class="spanli" id="s1129">Installables sur n'importe quel site Web sans transformations</span>
+</li>
+<script type="text/javascript">
+            var lil1129 = document.getElementById("l1129");
+            var spans1129 = document.getElementById("s1129");
+
+            lil1129.style.color = "orange";
+
+            spans1129.style.color = "black";</script>
+<li class="li_class" id="l11210">
+<span class="spanli" id="s11210">Plus légers</span>
+</li>
+<script type="text/javascript">
+            var lil11210 = document.getElementById("l11210");
+            var spans11210 = document.getElementById("s11210");
+
+            lil11210.style.color = "orange";
+
+            spans11210.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil1117 = document.getElementById("l1117");
+            var spans1117 = document.getElementById("s1117");
+
+            lil1117.style.color = "green";
+
+            spans1117.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">1/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide2" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Généralités ( suite )</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l11112">
+<span class="spanli" id="s11112">Les présentations EAST fonctionnent :
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11212">
+<span class="spanli" id="s11212">Sur toutes les versions de Firefox depuis la 3.5</span>
+</li>
+<script type="text/javascript">
+            var lil11212 = document.getElementById("l11212");
+            var spans11212 = document.getElementById("s11212");
+
+            lil11212.style.color = "orange";
+
+            spans11212.style.color = "black";</script>
+<li class="li_class" id="l11213">
+<span class="spanli" id="s11213">Débuggage sous IE en cours</span>
+</li>
+<script type="text/javascript">
+            var lil11213 = document.getElementById("l11213");
+            var spans11213 = document.getElementById("s11213");
+
+            lil11213.style.color = "orange";
+
+            spans11213.style.color = "black";</script>
+<li class="li_class" id="l11214">
+<span class="spanli" id="s11214">Pas encore testées sous Google Chrome </span>
+</li>
+<script type="text/javascript">
+            var lil11214 = document.getElementById("l11214");
+            var spans11214 = document.getElementById("s11214");
+
+            lil11214.style.color = "orange";
+
+            spans11214.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11112 = document.getElementById("l11112");
+            var spans11112 = document.getElementById("s11112");
+
+            lil11112.style.color = "green";
+
+            spans11112.style.color = "black";</script>
+<li class="li_class" id="l11116">
+<span class="spanli" id="s11116">Elles utilisent
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11216">
+<span class="spanli" id="s11216">HTML 5</span>
+</li>
+<script type="text/javascript">
+            var lil11216 = document.getElementById("l11216");
+            var spans11216 = document.getElementById("s11216");
+
+            lil11216.style.color = "orange";
+
+            spans11216.style.color = "black";</script>
+<li class="li_class" id="l11217">
+<span class="spanli" id="s11217">CSS 3</span>
+</li>
+<script type="text/javascript">
+            var lil11217 = document.getElementById("l11217");
+            var spans11217 = document.getElementById("s11217");
+
+            lil11217.style.color = "orange";
+
+            spans11217.style.color = "black";</script>
+<li class="li_class" id="l11218">
+<span class="spanli" id="s11218">Javascript</span>
+</li>
+<script type="text/javascript">
+            var lil11218 = document.getElementById("l11218");
+            var spans11218 = document.getElementById("s11218");
+
+            lil11218.style.color = "orange";
+
+            spans11218.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11116 = document.getElementById("l11116");
+            var spans11116 = document.getElementById("s11116");
+
+            lil11116.style.color = "green";
+
+            spans11116.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">2/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="partie2" class="slide">
+<table height="60%" width="100%">
+<tbody>
+<tr>
+<td>
+<h1 class="titrepartie">Principes de fonctionnement</h1>
+</td>
+</tr>
+</tbody>
+</table>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber"/>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide3" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Principes de base</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l11120">
+<span class="spanli" id="s11120">EAST fonctionne à l'aide de 3 fichiers :
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11220">
+<span class="spanli" id="s11220">Un fichier XML qui est la source de la présentation</span>
+</li>
+<script type="text/javascript">
+            var lil11220 = document.getElementById("l11220");
+            var spans11220 = document.getElementById("s11220");
+
+            lil11220.style.color = "orange";
+
+            spans11220.style.color = "black";</script>
+<li class="li_class" id="l11221">
+<span class="spanli" id="s11221">Un fichier XSLT qui va transformer le fichier XML précédant en fichier HTML</span>
+</li>
+<script type="text/javascript">
+            var lil11221 = document.getElementById("l11221");
+            var spans11221 = document.getElementById("s11221");
+
+            lil11221.style.color = "orange";
+
+            spans11221.style.color = "black";</script>
+<li class="li_class" id="l11222">
+<span class="spanli" id="s11222">Un fichier HTML servant à la présentation</span>
+</li>
+<script type="text/javascript">
+            var lil11222 = document.getElementById("l11222");
+            var spans11222 = document.getElementById("s11222");
+
+            lil11222.style.color = "orange";
+
+            spans11222.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11120 = document.getElementById("l11120");
+            var spans11120 = document.getElementById("s11120");
+
+            lil11120.style.color = "green";
+
+            spans11120.style.color = "black";</script>
+<li class="li_class" id="l11124">
+<span class="spanli" id="s11124">Le fichier XML est le <em>coeur</em> de la présentation
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11224">
+<span class="spanli" id="s11224">C'est lui qui renferme le contenu</span>
+</li>
+<script type="text/javascript">
+            var lil11224 = document.getElementById("l11224");
+            var spans11224 = document.getElementById("s11224");
+
+            lil11224.style.color = "orange";
+
+            spans11224.style.color = "black";</script>
+<li class="li_class" id="l11225">
+<span class="spanli" id="s11225">C'est le seul à conserver absolument car, à partir de lui, on peut toujours régénérer la présentation </span>
+</li>
+<script type="text/javascript">
+            var lil11225 = document.getElementById("l11225");
+            var spans11225 = document.getElementById("s11225");
+
+            lil11225.style.color = "orange";
+
+            spans11225.style.color = "black";</script>
+<li class="li_class" id="l11226">
+<span class="spanli" id="s11226">Il obéit à un schéma XML qui définit les balises et les attributs sémantiques qui peuvent être utilisés</span>
+</li>
+<script type="text/javascript">
+            var lil11226 = document.getElementById("l11226");
+            var spans11226 = document.getElementById("s11226");
+
+            lil11226.style.color = "orange";
+
+            spans11226.style.color = "black";</script>
+<li class="li_class" id="l11227">
+<span class="spanli" id="s11227">Il peut être créé par n'importe quel éditeur de texte</span>
+</li>
+<script type="text/javascript">
+            var lil11227 = document.getElementById("l11227");
+            var spans11227 = document.getElementById("s11227");
+
+            lil11227.style.color = "orange";
+
+            spans11227.style.color = "black";</script>
+<li class="li_class" id="l11228">
+<span class="spanli" id="s11228">Une interface pour l'éditeur XML gratuit Jaxe est fournie pour aider à la saisie</span>
+</li>
+<script type="text/javascript">
+            var lil11228 = document.getElementById("l11228");
+            var spans11228 = document.getElementById("s11228");
+
+            lil11228.style.color = "orange";
+
+            spans11228.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11124 = document.getElementById("l11124");
+            var spans11124 = document.getElementById("s11124");
+
+            lil11124.style.color = "green";
+
+            spans11124.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">3/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide4" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Principes de base ( suite )</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l11130">
+<span class="spanli" id="s11130">Le fichier XSLT fabrique le fichier HTML selon les <em>directives</em> du fichier XML 
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11230">
+<span class="spanli" id="s11230">Il est constitué une fois pour toutes par les développeurs de EAST</span>
+</li>
+<script type="text/javascript">
+            var lil11230 = document.getElementById("l11230");
+            var spans11230 = document.getElementById("s11230");
+
+            lil11230.style.color = "orange";
+
+            spans11230.style.color = "black";</script>
+<li class="li_class" id="l11231">
+<span class="spanli" id="s11231">Il renferme la mise en page commune des présentations</span>
+</li>
+<script type="text/javascript">
+            var lil11231 = document.getElementById("l11231");
+            var spans11231 = document.getElementById("s11231");
+
+            lil11231.style.color = "orange";
+
+            spans11231.style.color = "black";</script>
+<li class="li_class" id="l11232">
+<span class="spanli" id="s11232">Il assure la fabrication du fichier HTML
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l11332">
+<span class="spanli" id="s11332">en appelant les librairies et feuilles de style nécessaires ( timesheets )</span>
+</li>
+<script type="text/javascript">
+            var lil11332 = document.getElementById("l11332");
+            var spans11332 = document.getElementById("s11332");
+
+            lil11332.style.color = "green";
+
+            spans11332.style.color = "black";</script>
+<li class="li_class" id="l11333">
+<span class="spanli" id="s11333">en mettant en place tous les services : plan, navigation,impression</span>
+</li>
+<script type="text/javascript">
+            var lil11333 = document.getElementById("l11333");
+            var spans11333 = document.getElementById("s11333");
+
+            lil11333.style.color = "green";
+
+            spans11333.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11232 = document.getElementById("l11232");
+            var spans11232 = document.getElementById("s11232");
+
+            lil11232.style.color = "orange";
+
+            spans11232.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11130 = document.getElementById("l11130");
+            var spans11130 = document.getElementById("s11130");
+
+            lil11130.style.color = "green";
+
+            spans11130.style.color = "black";</script>
+<li class="li_class" id="l11136">
+<span class="spanli" id="s11136">Le fichier HTML sert à la présentation
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11236">
+<span class="spanli" id="s11236">Il est visualisé par un navigateur Web classique</span>
+</li>
+<script type="text/javascript">
+            var lil11236 = document.getElementById("l11236");
+            var spans11236 = document.getElementById("s11236");
+
+            lil11236.style.color = "orange";
+
+            spans11236.style.color = "black";</script>
+<li class="li_class" id="l11237">
+<span class="spanli" id="s11237">Il fournit tous les services programmés par la feuille de style XSLT
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l11337">
+<span class="spanli" id="s11337">Navigation</span>
+</li>
+<script type="text/javascript">
+            var lil11337 = document.getElementById("l11337");
+            var spans11337 = document.getElementById("s11337");
+
+            lil11337.style.color = "green";
+
+            spans11337.style.color = "black";</script>
+<li class="li_class" id="l11338">
+<span class="spanli" id="s11338">Mise en page</span>
+</li>
+<script type="text/javascript">
+            var lil11338 = document.getElementById("l11338");
+            var spans11338 = document.getElementById("s11338");
+
+            lil11338.style.color = "green";
+
+            spans11338.style.color = "black";</script>
+<li class="li_class" id="l11339">
+<span class="spanli" id="s11339">Impression</span>
+</li>
+<script type="text/javascript">
+            var lil11339 = document.getElementById("l11339");
+            var spans11339 = document.getElementById("s11339");
+
+            lil11339.style.color = "green";
+
+            spans11339.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11237 = document.getElementById("l11237");
+            var spans11237 = document.getElementById("s11237");
+
+            lil11237.style.color = "orange";
+
+            spans11237.style.color = "black";</script>
+<li class="li_class" id="l11241">
+<span class="spanli" id="s11241">Il peut être régénéré à volonté à partir du fichier XML</span>
+</li>
+<script type="text/javascript">
+            var lil11241 = document.getElementById("l11241");
+            var spans11241 = document.getElementById("s11241");
+
+            lil11241.style.color = "orange";
+
+            spans11241.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11136 = document.getElementById("l11136");
+            var spans11136 = document.getElementById("s11136");
+
+            lil11136.style.color = "green";
+
+            spans11136.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">4/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="partie3" class="slide">
+<table height="60%" width="100%">
+<tbody>
+<tr>
+<td>
+<h1 class="titrepartie">Fonctionnalités offertes</h1>
+</td>
+</tr>
+</tbody>
+</table>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber"/>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide5" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Vue d'ensemble</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<p>
+EAST fournit un ensemble de fonctionnalités permettant de mettre en page et d'animer les présentations.
+</p>
+<p>
+Elles peuvent se décomposer en plusieurs catégories
+</p>
+<ul type="square">
+<li class="li_class" id="l11143">
+<span class="spanli" id="s11143">Des fonctionnalités de mise en page : couleurs, style, ..</span>
+</li>
+<script type="text/javascript">
+            var lil11143 = document.getElementById("l11143");
+            var spans11143 = document.getElementById("s11143");
+
+            lil11143.style.color = "green";
+
+            spans11143.style.color = "black";</script>
+<li class="li_class" id="l11144">
+<span class="spanli" id="s11144">Des fonctionnalités d'animation : navigation entre slides, listes dynamiques</span>
+</li>
+<script type="text/javascript">
+            var lil11144 = document.getElementById("l11144");
+            var spans11144 = document.getElementById("s11144");
+
+            lil11144.style.color = "green";
+
+            spans11144.style.color = "black";</script>
+<li class="li_class" id="l11145">
+<span class="spanli" id="s11145">Des fonctionnalités d'impression et de sauvegarde</span>
+</li>
+<script type="text/javascript">
+            var lil11145 = document.getElementById("l11145");
+            var spans11145 = document.getElementById("s11145");
+
+            lil11145.style.color = "green";
+
+            spans11145.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">5/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide6" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Fonctionnalités de mise en page</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l11146">
+<span class="spanli" id="s11146">EAST permet de définir pour tous les slides
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11246">
+<span class="spanli" id="s11246">des logos : en haut à gauche et/ou en haut à droite de chaque slide</span>
+</li>
+<script type="text/javascript">
+            var lil11246 = document.getElementById("l11246");
+            var spans11246 = document.getElementById("s11246");
+
+            lil11246.style.color = "orange";
+
+            spans11246.style.color = "black";</script>
+<li class="li_class" id="l11247">
+<span class="spanli" id="s11247">des pieds de page en bas à gauche et/ou en bas à droite de chaque slide</span>
+</li>
+<script type="text/javascript">
+            var lil11247 = document.getElementById("l11247");
+            var spans11247 = document.getElementById("s11247");
+
+            lil11247.style.color = "orange";
+
+            spans11247.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11146 = document.getElementById("l11146");
+            var spans11146 = document.getElementById("s11146");
+
+            lil11146.style.color = "green";
+
+            spans11146.style.color = "black";</script>
+<li class="li_class" id="l11149">
+<span class="spanli" id="s11149">EAST met en place automatiquement
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11249">
+<span class="spanli" id="s11249">Un plan détaillé de la présentation</span>
+</li>
+<script type="text/javascript">
+            var lil11249 = document.getElementById("l11249");
+            var spans11249 = document.getElementById("s11249");
+
+            lil11249.style.color = "orange";
+
+            spans11249.style.color = "black";</script>
+<li class="li_class" id="l11250">
+<span class="spanli" id="s11250">Une numérotation des slides positionnée en bas au centre de chaque slide</span>
+</li>
+<script type="text/javascript">
+            var lil11250 = document.getElementById("l11250");
+            var spans11250 = document.getElementById("s11250");
+
+            lil11250.style.color = "orange";
+
+            spans11250.style.color = "black";</script>
+<li class="li_class" id="l11251">
+<span class="spanli" id="s11251">Des slides de séparation entre chaque <em>PARTIE</em>
+</span>
+</li>
+<script type="text/javascript">
+            var lil11251 = document.getElementById("l11251");
+            var spans11251 = document.getElementById("s11251");
+
+            lil11251.style.color = "orange";
+
+            spans11251.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11149 = document.getElementById("l11149");
+            var spans11149 = document.getElementById("s11149");
+
+            lil11149.style.color = "green";
+
+            spans11149.style.color = "black";</script>
+<li class="li_class" id="l11153">
+<span class="spanli" id="s11153">EAST permet également de mettre du contenu en colonnes automatiquement quelque soit le nombre de colonnes</span>
+</li>
+<script type="text/javascript">
+            var lil11153 = document.getElementById("l11153");
+            var spans11153 = document.getElementById("s11153");
+
+            lil11153.style.color = "green";
+
+            spans11153.style.color = "black";</script>
+<li class="li_class" id="l11154">
+<span class="spanli" id="s11154">EAST permet aussi de définir précisément liste par liste
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11254">
+<span class="spanli" id="s11254">la couleur des puces de la liste</span>
+</li>
+<script type="text/javascript">
+            var lil11254 = document.getElementById("l11254");
+            var spans11254 = document.getElementById("s11254");
+
+            lil11254.style.color = "orange";
+
+            spans11254.style.color = "black";</script>
+<li class="li_class" id="l11255">
+<span class="spanli" id="s11255">ou l'image à utiliser comme puce</span>
+</li>
+<script type="text/javascript">
+            var lil11255 = document.getElementById("l11255");
+            var spans11255 = document.getElementById("s11255");
+
+            lil11255.style.color = "orange";
+
+            spans11255.style.color = "black";</script>
+<li class="li_class" id="l11256">
+<span class="spanli" id="s11256">la couleur du texte de l'item de liste</span>
+</li>
+<script type="text/javascript">
+            var lil11256 = document.getElementById("l11256");
+            var spans11256 = document.getElementById("s11256");
+
+            lil11256.style.color = "orange";
+
+            spans11256.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11154 = document.getElementById("l11154");
+            var spans11154 = document.getElementById("s11154");
+
+            lil11154.style.color = "green";
+
+            spans11154.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">6/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide7" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Exemples de mise en page </h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l11158">
+<span class="spanli" id="s11158">Liste à puce carrée verte et texte noir</span>
+</li>
+<script type="text/javascript">
+            var lil11158 = document.getElementById("l11158");
+            var spans11158 = document.getElementById("s11158");
+
+            lil11158.style.color = "green";
+
+            spans11158.style.color = "black";</script>
+</ul>
+<ul type="disc">
+<li class="li_class" id="l11159">
+<span class="spanli" id="s11159">Liste à puce ronde rouge et texte marron</span>
+</li>
+<script type="text/javascript">
+            var lil11159 = document.getElementById("l11159");
+            var spans11159 = document.getElementById("s11159");
+
+            lil11159.style.color = "red";
+
+            spans11159.style.color = "maroon";</script>
+</ul>
+<ul type="A">
+<li class="li_class" id="l11160">
+<span class="spanli" id="s11160">Différents types de puce possibles
+
+</span>
+<ul type="1">
+<li class="li_class" id="l11260">
+<span class="spanli" id="s11260">Numérique grise
+
+</span>
+<ul type="i">
+<li class="li_class" id="l11360">
+<span class="spanli" id="s11360">Alphanumérique minuscule aqua et texte bleu</span>
+</li>
+<script type="text/javascript">
+            var lil11360 = document.getElementById("l11360");
+            var spans11360 = document.getElementById("s11360");
+
+            lil11360.style.color = "aqua";
+
+            spans11360.style.color = "blue";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11260 = document.getElementById("l11260");
+            var spans11260 = document.getElementById("s11260");
+
+            lil11260.style.color = "gray";
+
+            spans11260.style.color = "black";</script>
+<li class="li_class" id="l11262">
+<span class="spanli" id="s11262">De nouveau numérique grise</span>
+</li>
+<script type="text/javascript">
+            var lil11262 = document.getElementById("l11262");
+            var spans11262 = document.getElementById("s11262");
+
+            lil11262.style.color = "gray";
+
+            spans11262.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11160 = document.getElementById("l11160");
+            var spans11160 = document.getElementById("s11160");
+
+            lil11160.style.color = "purple";
+
+            spans11160.style.color = "black";</script>
+</ul>
+<ul type="circle">
+<li class="li_class" id="l11164">
+<span class="spanli" id="s11164">Liste à puces de type image</span>
+</li>
+<script type="text/javascript">
+            var lil11164 = document.getElementById("l11164");
+            var spans11164 = document.getElementById("s11164");
+
+            lil11164.style.color = "black";
+
+            
+              lil11164.style.listStyleImage = "url(Cea50x50.png)";
+            spans11164.style.color = "black";</script>
+</ul>
+<p>
+<div style="" id="d160" class="code_cols">
+<tt style="">Voici du texte qui va être mis sur deux colonnes
+Cela s'applique aussi a d'autres types de contenus comme
+les images ou les morceaux de code
+</tt>
+</div>
+<script type="text/javascript">
+    var divd160 = document.getElementById("d160");
+
+    divd160.style.columnCount = "2";
+    divd160.style.MozColumnCount = "2";
+    divd160.style.webkitColumnCount = "2";
+    divd160.style.oColumnCount = "2";
+  </script>
+</p>
+<p>
+Enfin EAST permet d'utiliser des équations comme celle-ci : <img src="equations_east/equation1.png" class="equation" alt="racine(x^2+y^2)=a/b"/>
+</p>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">7/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide8" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Fonctionnalités d'animation</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l11165">
+<span class="spanli" id="s11165">EAST propose deux grands types d'animation
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11265">
+<span class="spanli" id="s11265">Transitions entre slides 
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l11365">
+<span class="spanli" id="s11365">Elles interviennent dans toute navigation d'un slide à un autre que soit en séquence ou par accès direct</span>
+</li>
+<script type="text/javascript">
+            var lil11365 = document.getElementById("l11365");
+            var spans11365 = document.getElementById("s11365");
+
+            lil11365.style.color = "green";
+
+            spans11365.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11265 = document.getElementById("l11265");
+            var spans11265 = document.getElementById("s11265");
+
+            lil11265.style.color = "orange";
+
+            spans11265.style.color = "black";</script>
+<li class="li_class" id="l11267">
+<span class="spanli" id="s11267">Dynamique des listes
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l11367">
+<span class="spanli" id="s11367">Cela permet de gérer la façon dont apparaissent les items des listes</span>
+</li>
+<script type="text/javascript">
+            var lil11367 = document.getElementById("l11367");
+            var spans11367 = document.getElementById("s11367");
+
+            lil11367.style.color = "green";
+
+            spans11367.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11267 = document.getElementById("l11267");
+            var spans11267 = document.getElementById("s11267");
+
+            lil11267.style.color = "orange";
+
+            spans11267.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11165 = document.getElementById("l11165");
+            var spans11165 = document.getElementById("s11165");
+
+            lil11165.style.color = "green";
+
+            spans11165.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">8/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide9" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Les transitions</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l11170">
+<span class="spanli" id="s11170">Ce sont en fait des transitions CSS3 définies dans les fichiers de configuration de EAST</span>
+</li>
+<script type="text/javascript">
+            var lil11170 = document.getElementById("l11170");
+            var spans11170 = document.getElementById("s11170");
+
+            lil11170.style.color = "green";
+
+            spans11170.style.color = "black";</script>
+<li class="li_class" id="l11171">
+<span class="spanli" id="s11171">De ce fait, il faut utiliser des versions récentes des navigateurs pour que cela fonctionne ( &gt; 4 pour Firefox )</span>
+</li>
+<script type="text/javascript">
+            var lil11171 = document.getElementById("l11171");
+            var spans11171 = document.getElementById("s11171");
+
+            lil11171.style.color = "green";
+
+            spans11171.style.color = "black";</script>
+<li class="li_class" id="l11172">
+<span class="spanli" id="s11172">Il est extrêmement simple d'en définir de nouvelles ( 10 lignes ; environ 10 minutes )</span>
+</li>
+<script type="text/javascript">
+            var lil11172 = document.getElementById("l11172");
+            var spans11172 = document.getElementById("s11172");
+
+            lil11172.style.color = "green";
+
+            spans11172.style.color = "black";</script>
+<li class="li_class" id="l11173">
+<span class="spanli" id="s11173">Dans la version actuelle de EAST
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11273">
+<span class="spanli" id="s11273">La transition est globale pour tous les slides</span>
+</li>
+<script type="text/javascript">
+            var lil11273 = document.getElementById("l11273");
+            var spans11273 = document.getElementById("s11273");
+
+            lil11273.style.color = "orange";
+
+            spans11273.style.color = "black";</script>
+<li class="li_class" id="l11274">
+<span class="spanli" id="s11274">Il existe 6 transitions possibles ( 5 définies par Fabien Cazenave et une par l'auteur )
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l11374">
+<span class="spanli" id="s11374">crossfade : fondu enchainé statique</span>
+</li>
+<script type="text/javascript">
+            var lil11374 = document.getElementById("l11374");
+            var spans11374 = document.getElementById("s11374");
+
+            lil11374.style.color = "green";
+
+            spans11374.style.color = "black";</script>
+<li class="li_class" id="l11375">
+<span class="spanli" id="s11375">fadethrough :fondu enchaîné dynamique</span>
+</li>
+<script type="text/javascript">
+            var lil11375 = document.getElementById("l11375");
+            var spans11375 = document.getElementById("s11375");
+
+            lil11375.style.color = "green";
+
+            spans11375.style.color = "black";</script>
+<li class="li_class" id="l11376">
+<span class="spanli" id="s11376">carousel : défilement des slides sous forme de carrousel</span>
+</li>
+<script type="text/javascript">
+            var lil11376 = document.getElementById("l11376");
+            var spans11376 = document.getElementById("s11376");
+
+            lil11376.style.color = "green";
+
+            spans11376.style.color = "black";</script>
+<li class="li_class" id="l11377">
+<span class="spanli" id="s11377">slide :défilement des slides en déplacement latéral</span>
+</li>
+<script type="text/javascript">
+            var lil11377 = document.getElementById("l11377");
+            var spans11377 = document.getElementById("s11377");
+
+            lil11377.style.color = "green";
+
+            spans11377.style.color = "black";</script>
+<li class="li_class" id="l11378">
+<span class="spanli" id="s11378">toss :défilement des slides par rotation autour du point bas gauche</span>
+</li>
+<script type="text/javascript">
+            var lil11378 = document.getElementById("l11378");
+            var spans11378 = document.getElementById("s11378");
+
+            lil11378.style.color = "green";
+
+            spans11378.style.color = "black";</script>
+<li class="li_class" id="l11379">
+<span class="spanli" id="s11379">burst: jaillissement des slides</span>
+</li>
+<script type="text/javascript">
+            var lil11379 = document.getElementById("l11379");
+            var spans11379 = document.getElementById("s11379");
+
+            lil11379.style.color = "green";
+
+            spans11379.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11274 = document.getElementById("l11274");
+            var spans11274 = document.getElementById("s11274");
+
+            lil11274.style.color = "orange";
+
+            spans11274.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11173 = document.getElementById("l11173");
+            var spans11173 = document.getElementById("s11173");
+
+            lil11173.style.color = "green";
+
+            spans11173.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">9/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide10" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Dynamique des listes</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l11182">
+<span class="spanli" id="s11182">Les items de liste peuvent être gérés de façon dynamique pour attirer l'attention des auditeurs</span>
+</li>
+<script type="text/javascript">
+            var lil11182 = document.getElementById("l11182");
+            var spans11182 = document.getElementById("s11182");
+
+            lil11182.style.color = "green";
+
+            spans11182.style.color = "black";</script>
+<li class="li_class" id="l11183">
+<span class="spanli" id="s11183">Il existe plusieurs types de listes dynamiques possibles
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l11283">
+<span class="spanli" id="s11283">Listes accordéon
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l11383">
+<span class="spanli" id="s11383">Un seul item est visible à un moment donné</span>
+</li>
+<script type="text/javascript">
+            var lil11383 = document.getElementById("l11383");
+            var spans11383 = document.getElementById("s11383");
+
+            lil11383.style.color = "green";
+
+            spans11383.style.color = "black";</script>
+<li class="li_class" id="l11384">
+<span class="spanli" id="s11384">Le clic suivant masque cet item et affiche celui sur lequel on a cliqué</span>
+</li>
+<script type="text/javascript">
+            var lil11384 = document.getElementById("l11384");
+            var spans11384 = document.getElementById("s11384");
+
+            lil11384.style.color = "green";
+
+            spans11384.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11283 = document.getElementById("l11283");
+            var spans11283 = document.getElementById("s11283");
+
+            lil11283.style.color = "orange";
+
+            spans11283.style.color = "black";</script>
+<li class="li_class" id="l11286">
+<span class="spanli" id="s11286">Listes pliées
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l11386">
+<span class="spanli" id="s11386">Les items sont masqués par défaut</span>
+</li>
+<script type="text/javascript">
+            var lil11386 = document.getElementById("l11386");
+            var spans11386 = document.getElementById("s11386");
+
+            lil11386.style.color = "green";
+
+            spans11386.style.color = "black";</script>
+<li class="li_class" id="l11387">
+<span class="spanli" id="s11387">Ils ne se révèlent qu'au clic souris</span>
+</li>
+<script type="text/javascript">
+            var lil11387 = document.getElementById("l11387");
+            var spans11387 = document.getElementById("s11387");
+
+            lil11387.style.color = "green";
+
+            spans11387.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11286 = document.getElementById("l11286");
+            var spans11286 = document.getElementById("s11286");
+
+            lil11286.style.color = "orange";
+
+            spans11286.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11183 = document.getElementById("l11183");
+            var spans11183 = document.getElementById("s11183");
+
+            lil11183.style.color = "green";
+
+            spans11183.style.color = "black";</script>
+</ul>
+
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">10/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide11" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Dynamique des listes ( suite )</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l11190">
+<span class="spanli" id="s11190">Listes incrémentales
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l11290">
+<span class="spanli" id="s11290">simple : les items sont masqués et se révèlent les uns après les autres au clic souris</span>
+</li>
+<script type="text/javascript">
+            var lil11290 = document.getElementById("l11290");
+            var spans11290 = document.getElementById("s11290");
+
+            lil11290.style.color = "green";
+
+            spans11290.style.color = "black";</script>
+<li class="li_class" id="l11291">
+<span class="spanli" id="s11291">ombré : même principe que la simple mais les items "passés" se voilent</span>
+</li>
+<script type="text/javascript">
+            var lil11291 = document.getElementById("l11291");
+            var spans11291 = document.getElementById("s11291");
+
+            lil11291.style.color = "green";
+
+            spans11291.style.color = "black";</script>
+<li class="li_class" id="l11292">
+<span class="spanli" id="s11292">allumée : 
+</span>
+<ul type="1">
+<li class="li_class" id="l11392">
+<span class="spanli" id="s11392">Au démarrage, les items sont masqués</span>
+</li>
+<script type="text/javascript">
+            var lil11392 = document.getElementById("l11392");
+            var spans11392 = document.getElementById("s11392");
+
+            lil11392.style.color = "orange";
+
+            spans11392.style.color = "black";</script>
+<li class="li_class" id="l11393">
+<span class="spanli" id="s11393">Le premier clic révéle toute la liste en ombré et le premier item passe en rouge</span>
+</li>
+<script type="text/javascript">
+            var lil11393 = document.getElementById("l11393");
+            var spans11393 = document.getElementById("s11393");
+
+            lil11393.style.color = "orange";
+
+            spans11393.style.color = "black";</script>
+<li class="li_class" id="l11394">
+<span class="spanli" id="s11394">Les autres clics laissent les items "passés" en noir et passe l'item courant en rouge</span>
+</li>
+<script type="text/javascript">
+            var lil11394 = document.getElementById("l11394");
+            var spans11394 = document.getElementById("s11394");
+
+            lil11394.style.color = "orange";
+
+            spans11394.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11292 = document.getElementById("l11292");
+            var spans11292 = document.getElementById("s11292");
+
+            lil11292.style.color = "green";
+
+            spans11292.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11190 = document.getElementById("l11190");
+            var spans11190 = document.getElementById("s11190");
+
+            lil11190.style.color = "green";
+
+            spans11190.style.color = "black";</script>
+<li class="li_class" id="l11197">
+<span class="spanli" id="s11197">Listes progressives
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l11297">
+<span class="spanli" id="s11297">Fonctionnement identique aux listes incrémentales</span>
+</li>
+<script type="text/javascript">
+            var lil11297 = document.getElementById("l11297");
+            var spans11297 = document.getElementById("s11297");
+
+            lil11297.style.color = "green";
+
+            spans11297.style.color = "black";</script>
+<li class="li_class" id="l11298">
+<span class="spanli" id="s11298">Mais SANS clic souris : la liste se développe automatiquement</span>
+</li>
+<script type="text/javascript">
+            var lil11298 = document.getElementById("l11298");
+            var spans11298 = document.getElementById("s11298");
+
+            lil11298.style.color = "green";
+
+            spans11298.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil11197 = document.getElementById("l11197");
+            var spans11197 = document.getElementById("s11197");
+
+            lil11197.style.color = "green";
+
+            spans11197.style.color = "black";</script>
+<li class="li_class" id="l111100">
+<span class="spanli" id="s111100">Les slides suivants vous montrent des exemples de ces différentes listes</span>
+</li>
+<script type="text/javascript">
+            var lil111100 = document.getElementById("l111100");
+            var spans111100 = document.getElementById("s111100");
+
+            lil111100.style.color = "green";
+
+            spans111100.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">11/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide12" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Listes pliées</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square" class="outline">
+<li class="li_class" id="l111101">
+<span class="spanli" id="s111101">Premier item
+</span>
+<ul type="square">
+<li class="li_class" id="l112101">
+<span class="spanli" id="s112101">SS liste 1</span>
+</li>
+<script type="text/javascript">
+            var lil112101 = document.getElementById("l112101");
+            var spans112101 = document.getElementById("s112101");
+
+            lil112101.style.color = "black";
+
+            
+              lil112101.style.listStyleImage = "url()";
+            spans112101.style.color = "black";</script>
+</ul>
+<img src="config_EAST/signe_plus.png" class="plus"/>
+</li>
+<script type="text/javascript">
+            var lil111101 = document.getElementById("l111101");
+            var spans111101 = document.getElementById("s111101");
+
+            lil111101.style.color = "blue";
+
+            spans111101.style.color = "maroon";</script>
+<li class="li_class" id="l111103">
+<span class="spanli" id="s111103">Deuxième item
+</span>
+<ul type="square">
+<li class="li_class" id="l112103">
+<span class="spanli" id="s112103">ss liste 2</span>
+</li>
+<script type="text/javascript">
+              var lil112103 = document.getElementById("l112103");
+              var spans112103 = document.getElementById("s112103");
+
+              lil112103.style.color = "black";
+              spans112103.style.color = "black";
+            </script>
+</ul>
+<img src="config_EAST/signe_plus.png" class="plus"/>
+</li>
+<script type="text/javascript">
+            var lil111103 = document.getElementById("l111103");
+            var spans111103 = document.getElementById("s111103");
+
+            lil111103.style.color = "blue";
+
+            spans111103.style.color = "maroon";</script>
+<li class="li_class" id="l111105">
+<span class="spanli" id="s111105">Lien vers le transparent <a href="#slide3">3</a>
+</span>
+</li>
+<script type="text/javascript">
+            var lil111105 = document.getElementById("l111105");
+            var spans111105 = document.getElementById("s111105");
+
+            lil111105.style.color = "blue";
+
+            spans111105.style.color = "maroon";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">12/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide13" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Liste accordéon</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+<ul type="disc" class="accordion">
+<li class="li_class" id="l111106">
+<span class="spanli" id="s111106">Acc 1
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l112106">
+<span class="spanli" id="s112106">
+<a href="http://www.cea.fr">SS acc 1</a>
+</span>
+</li>
+<script type="text/javascript">
+            var lil112106 = document.getElementById("l112106");
+            var spans112106 = document.getElementById("s112106");
+
+            lil112106.style.color = "blue";
+
+            spans112106.style.color = "black";</script>
+</ul>
+<img src="config_EAST/signe_plus.png" class="plus"/>
+</li>
+<script type="text/javascript">
+            var lil111106 = document.getElementById("l111106");
+            var spans111106 = document.getElementById("s111106");
+
+            lil111106.style.color = "orange";
+
+            spans111106.style.color = "black";</script>
+<li class="li_class" id="l111108">
+<span class="spanli" id="s111108">Acc2
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l112108">
+<span class="spanli" id="s112108">SS acc2</span>
+</li>
+<script type="text/javascript">
+              var lil112108 = document.getElementById("l112108");
+              var spans112108 = document.getElementById("s112108");
+
+              lil112108.style.color = "black";
+              spans112108.style.color = "black";
+            </script>
+</ul>
+<img src="config_EAST/signe_plus.png" class="plus"/>
+</li>
+<script type="text/javascript">
+            var lil111108 = document.getElementById("l111108");
+            var spans111108 = document.getElementById("s111108");
+
+            lil111108.style.color = "orange";
+
+            spans111108.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">13/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide14" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Liste incrémentale</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<h3 class="incremental">Titre liste incrémentale</h3>
+<ul type="disc" class="incremental">
+<li class="li_class" id="l111110">
+<span class="spanli" id="s111110">Element Inc 1
+
+</span>
+<ul type="square">
+<li class="li_class" id="l112110">
+<span class="spanli" id="s112110">Ss liste 1</span>
+</li>
+<script type="text/javascript">
+            var lil112110 = document.getElementById("l112110");
+            var spans112110 = document.getElementById("s112110");
+
+            lil112110.style.color = "green";
+
+            spans112110.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+              var lil111110 = document.getElementById("l111110");
+              var spans111110 = document.getElementById("s111110");
+
+              lil111110.style.color = "black";
+              spans111110.style.color = "black";
+            </script>
+<li class="li_class" id="l111112">
+<span class="spanli" id="s111112">Element Inc 2
+
+</span>
+<ul type="square">
+<li class="li_class" id="l112112">
+<span class="spanli" id="s112112">Sous-liste 2</span>
+</li>
+<script type="text/javascript">
+            var lil112112 = document.getElementById("l112112");
+            var spans112112 = document.getElementById("s112112");
+
+            lil112112.style.color = "green";
+
+            spans112112.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+              var lil111112 = document.getElementById("l111112");
+              var spans111112 = document.getElementById("s111112");
+
+              lil111112.style.color = "black";
+              spans111112.style.color = "black";
+            </script>
+<li class="li_class" id="l111114">
+<span class="spanli" id="s111114">Element Inc 3</span>
+</li>
+<script type="text/javascript">
+              var lil111114 = document.getElementById("l111114");
+              var spans111114 = document.getElementById("s111114");
+
+              lil111114.style.color = "black";
+              spans111114.style.color = "black";
+            </script>
+<li class="signeplus">
+<img src="config_EAST/signe_plus.png"/>
+</li>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">14/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide15" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Liste incrémentale ombrée</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="disc" class="shadowinc">
+<li class="li_class" id="l111115">
+<span class="spanli" id="s111115">Je suis une liste ombrée
+
+</span>
+<ul type="square">
+<li class="li_class" id="l112115">
+<span class="spanli" id="s112115">C'est à dire</span>
+</li>
+<script type="text/javascript">
+              var lil112115 = document.getElementById("l112115");
+              var spans112115 = document.getElementById("s112115");
+
+              lil112115.style.color = "black";
+              spans112115.style.color = "black";
+            </script>
+<li class="li_class" id="l112116">
+<span class="spanli" id="s112116">ou autrement dit</span>
+</li>
+<script type="text/javascript">
+              var lil112116 = document.getElementById("l112116");
+              var spans112116 = document.getElementById("s112116");
+
+              lil112116.style.color = "black";
+              spans112116.style.color = "black";
+            </script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111115 = document.getElementById("l111115");
+            var spans111115 = document.getElementById("s111115");
+
+            lil111115.style.color = "green";
+
+            spans111115.style.color = "black";</script>
+<li class="li_class" id="l111118">
+<span class="spanli" id="s111118">Que mes items se voilent dès qu'ils ne sont plus actifs
+
+</span>
+<ul type="square">
+<li class="li_class" id="l112118">
+<span class="spanli" id="s112118">Comme vous le voyez</span>
+</li>
+<script type="text/javascript">
+              var lil112118 = document.getElementById("l112118");
+              var spans112118 = document.getElementById("s112118");
+
+              lil112118.style.color = "black";
+              spans112118.style.color = "black";
+            </script>
+<li class="li_class" id="l112119">
+<span class="spanli" id="s112119">ou comme vous devriez le voir</span>
+</li>
+<script type="text/javascript">
+              var lil112119 = document.getElementById("l112119");
+              var spans112119 = document.getElementById("s112119");
+
+              lil112119.style.color = "black";
+              spans112119.style.color = "black";
+            </script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111118 = document.getElementById("l111118");
+            var spans111118 = document.getElementById("s111118");
+
+            lil111118.style.color = "green";
+
+            spans111118.style.color = "black";</script>
+<li class="signeplus">
+<img src="config_EAST/signe_plus.png"/>
+</li>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">15/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide16" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Liste incrémentale allumée</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<h3 class="highinc">Essais de listes</h3>
+<ul type="square" class="highinc">
+<li class="highlight" id="l111121">
+<span class="spanli" id="s111121">Ceci est une liste incrémentale allumée</span>
+</li>
+<script type="text/javascript">
+            var lil111121 = document.getElementById("l111121");
+            var spans111121 = document.getElementById("s111121");
+
+            lil111121.style.color = "purple";
+
+            spans111121.style.color = "black";</script>
+<li class="highlight" id="l111122">
+<span class="spanli" id="s111122">Cela veut dire
+
+</span>
+<ul>
+<li class="highlight" id="l112122">
+<span class="spanli" id="s112122">Que tous les éléments s'allument séquentiellement en rouge au clic de la souris</span>
+</li>
+<script type="text/javascript">
+              var lil112122 = document.getElementById("l112122");
+              var spans112122 = document.getElementById("s112122");
+
+              lil112122.style.color = "black";
+              spans112122.style.color = "black";
+            </script>
+<li class="highlight" id="l112123">
+<span class="spanli" id="s112123">Que les éléments passés restent affichés en noir</span>
+</li>
+<script type="text/javascript">
+              var lil112123 = document.getElementById("l112123");
+              var spans112123 = document.getElementById("s112123");
+
+              lil112123.style.color = "black";
+              spans112123.style.color = "black";
+            </script>
+<li class="highlight" id="l112124">
+<span class="spanli" id="s112124">Que les éléments futurs sont visibles en opacité réduite</span>
+</li>
+<script type="text/javascript">
+              var lil112124 = document.getElementById("l112124");
+              var spans112124 = document.getElementById("s112124");
+
+              lil112124.style.color = "black";
+              spans112124.style.color = "black";
+            </script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111122 = document.getElementById("l111122");
+            var spans111122 = document.getElementById("s111122");
+
+            lil111122.style.color = "purple";
+
+            spans111122.style.color = "black";</script>
+<li class="highlight" id="l111126">
+<span class="spanli" id="s111126">Et ceci quelle que soit le niveau de profondeur de la liste
+
+</span>
+<ul type="disc">
+<li class="highlight" id="l112126">
+<span class="spanli" id="s112126">1
+
+</span>
+<ul type="circle">
+<li class="highlight" id="l113126">
+<span class="spanli" id="s113126">2
+
+</span>
+<ul type="1">
+<li class="highlight" id="l114126">
+<span class="spanli" id="s114126">3
+
+</span>
+<ul type="A">
+<li class="highlight" id="l115126">
+<span class="spanli" id="s115126">ou 4</span>
+</li>
+<script type="text/javascript">
+              var lil115126 = document.getElementById("l115126");
+              var spans115126 = document.getElementById("s115126");
+
+              lil115126.style.color = "black";
+              spans115126.style.color = "black";
+            </script>
+</ul>
+</li>
+<script type="text/javascript">
+              var lil114126 = document.getElementById("l114126");
+              var spans114126 = document.getElementById("s114126");
+
+              lil114126.style.color = "black";
+              spans114126.style.color = "black";
+            </script>
+</ul>
+</li>
+<script type="text/javascript">
+              var lil113126 = document.getElementById("l113126");
+              var spans113126 = document.getElementById("s113126");
+
+              lil113126.style.color = "black";
+              spans113126.style.color = "black";
+            </script>
+</ul>
+</li>
+<script type="text/javascript">
+              var lil112126 = document.getElementById("l112126");
+              var spans112126 = document.getElementById("s112126");
+
+              lil112126.style.color = "black";
+              spans112126.style.color = "black";
+            </script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111126 = document.getElementById("l111126");
+            var spans111126 = document.getElementById("s111126");
+
+            lil111126.style.color = "purple";
+
+            spans111126.style.color = "black";</script>
+<li class="signeplus">
+<img src="config_EAST/signe_plus.png"/>
+</li>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">16/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide17" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Liste progressive</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="circle" class="progressive">
+<li class="li_class" id="l111131">
+<span class="spanli" id="s111131">Et un
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l112131">
+<span class="spanli" id="s112131">un et demi</span>
+</li>
+<script type="text/javascript">
+            var lil112131 = document.getElementById("l112131");
+            var spans112131 = document.getElementById("s112131");
+
+            lil112131.style.color = "blue";
+
+            spans112131.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111131 = document.getElementById("l111131");
+            var spans111131 = document.getElementById("s111131");
+
+            lil111131.style.color = "maroon";
+
+            spans111131.style.color = "black";</script>
+<li class="li_class" id="l111133">
+<span class="spanli" id="s111133">Et deux
+</span>
+<ul type="square">
+<li class="li_class" id="l112133">
+<span class="spanli" id="s112133">deux et demi</span>
+</li>
+<script type="text/javascript">
+            var lil112133 = document.getElementById("l112133");
+            var spans112133 = document.getElementById("s112133");
+
+            lil112133.style.color = "green";
+
+            spans112133.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111133 = document.getElementById("l111133");
+            var spans111133 = document.getElementById("s111133");
+
+            lil111133.style.color = "maroon";
+
+            spans111133.style.color = "black";</script>
+<li class="li_class" id="l111135">
+<span class="spanli" id="s111135">Et trois
+</span>
+<ul type="disc">
+<li class="li_class" id="l112135">
+<span class="spanli" id="s112135">Trois et demi</span>
+</li>
+<script type="text/javascript">
+            var lil112135 = document.getElementById("l112135");
+            var spans112135 = document.getElementById("s112135");
+
+            lil112135.style.color = "aqua";
+
+            spans112135.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111135 = document.getElementById("l111135");
+            var spans111135 = document.getElementById("s111135");
+
+            lil111135.style.color = "maroon";
+
+            spans111135.style.color = "black";</script>
+<li class="li_class" id="l111137">
+<span class="spanli" id="s111137">Et quatre
+</span>
+<ul type="A">
+<li class="li_class" id="l112137">
+<span class="spanli" id="s112137">quatre et demi</span>
+</li>
+<script type="text/javascript">
+            var lil112137 = document.getElementById("l112137");
+            var spans112137 = document.getElementById("s112137");
+
+            lil112137.style.color = "lime";
+
+            spans112137.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111137 = document.getElementById("l111137");
+            var spans111137 = document.getElementById("s111137");
+
+            lil111137.style.color = "maroon";
+
+            spans111137.style.color = "black";</script>
+<li class="signeplus">
+<img src="config_EAST/signe_plus.png"/>
+</li>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">17/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide18" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Fonctionnalités de navigation</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l111139">
+<span class="spanli" id="s111139">On peut naviguer entre les slides de différentes façons :
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l112139">
+<span class="spanli" id="s112139">par la souris</span>
+</li>
+<script type="text/javascript">
+            var lil112139 = document.getElementById("l112139");
+            var spans112139 = document.getElementById("s112139");
+
+            lil112139.style.color = "orange";
+
+            spans112139.style.color = "black";</script>
+<li class="li_class" id="l112140">
+<span class="spanli" id="s112140">par les raccourcis clavier</span>
+</li>
+<script type="text/javascript">
+            var lil112140 = document.getElementById("l112140");
+            var spans112140 = document.getElementById("s112140");
+
+            lil112140.style.color = "orange";
+
+            spans112140.style.color = "black";</script>
+<li class="li_class" id="l112141">
+<span class="spanli" id="s112141">par les boutons</span>
+</li>
+<script type="text/javascript">
+            var lil112141 = document.getElementById("l112141");
+            var spans112141 = document.getElementById("s112141");
+
+            lil112141.style.color = "orange";
+
+            spans112141.style.color = "black";</script>
+<li class="li_class" id="l112142">
+<span class="spanli" id="s112142">par le hash de l'URL</span>
+</li>
+<script type="text/javascript">
+            var lil112142 = document.getElementById("l112142");
+            var spans112142 = document.getElementById("s112142");
+
+            lil112142.style.color = "orange";
+
+            spans112142.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111139 = document.getElementById("l111139");
+            var spans111139 = document.getElementById("s111139");
+
+            lil111139.style.color = "green";
+
+            spans111139.style.color = "black";</script>
+<li class="li_class" id="l111144">
+<span class="spanli" id="s111144">Navigation à la souris
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l112144">
+<span class="spanli" id="s112144">La roulette de la souris permet d'avancer ou de reculer dans le diaporama</span>
+</li>
+<script type="text/javascript">
+            var lil112144 = document.getElementById("l112144");
+            var spans112144 = document.getElementById("s112144");
+
+            lil112144.style.color = "orange";
+
+            spans112144.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111144 = document.getElementById("l111144");
+            var spans111144 = document.getElementById("s111144");
+
+            lil111144.style.color = "green";
+
+            spans111144.style.color = "black";</script>
+<li class="li_class" id="l111146">
+<span class="spanli" id="s111146">Raccourcis clavier
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l112146">
+<span class="spanli" id="s112146">Flèche gauche - Flèche droite : Recule/Avance d'un slide</span>
+</li>
+<script type="text/javascript">
+            var lil112146 = document.getElementById("l112146");
+            var spans112146 = document.getElementById("s112146");
+
+            lil112146.style.color = "orange";
+
+            spans112146.style.color = "black";</script>
+<li class="li_class" id="l112147">
+<span class="spanli" id="s112147">PageUp - PageDown : Recule/Avance d'un slide</span>
+</li>
+<script type="text/javascript">
+            var lil112147 = document.getElementById("l112147");
+            var spans112147 = document.getElementById("s112147");
+
+            lil112147.style.color = "orange";
+
+            spans112147.style.color = "black";</script>
+<li class="li_class" id="l112148">
+<span class="spanli" id="s112148">Barre d'espacement : Avance d'un slide</span>
+</li>
+<script type="text/javascript">
+            var lil112148 = document.getElementById("l112148");
+            var spans112148 = document.getElementById("s112148");
+
+            lil112148.style.color = "orange";
+
+            spans112148.style.color = "black";</script>
+<li class="li_class" id="l112149">
+<span class="spanli" id="s112149">Home : Revient à la page titre</span>
+</li>
+<script type="text/javascript">
+            var lil112149 = document.getElementById("l112149");
+            var spans112149 = document.getElementById("s112149");
+
+            lil112149.style.color = "orange";
+
+            spans112149.style.color = "black";</script>
+<li class="li_class" id="l112150">
+<span class="spanli" id="s112150">Fin : Va à la dernière page</span>
+</li>
+<script type="text/javascript">
+            var lil112150 = document.getElementById("l112150");
+            var spans112150 = document.getElementById("s112150");
+
+            lil112150.style.color = "orange";
+
+            spans112150.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111146 = document.getElementById("l111146");
+            var spans111146 = document.getElementById("s111146");
+
+            lil111146.style.color = "green";
+
+            spans111146.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">18/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide19" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Fonctionnalités de navigation ( suite )</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l111152">
+<span class="spanli" id="s111152">Navigation grâce aux boutons
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l112152">
+<span class="spanli" id="s112152">La transformation XSLT crée automatiquement pour chaque slide cinq boutons de navigation positionnés en bas d'écran sous la page
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l113152">
+<span class="spanli" id="s113152">|&lt;&lt; : Ramène à la page de titre</span>
+</li>
+<script type="text/javascript">
+            var lil113152 = document.getElementById("l113152");
+            var spans113152 = document.getElementById("s113152");
+
+            lil113152.style.color = "green";
+
+            spans113152.style.color = "black";</script>
+<li class="li_class" id="l113153">
+<span class="spanli" id="s113153">&lt; prev : Slide précédent</span>
+</li>
+<script type="text/javascript">
+            var lil113153 = document.getElementById("l113153");
+            var spans113153 = document.getElementById("s113153");
+
+            lil113153.style.color = "green";
+
+            spans113153.style.color = "black";</script>
+<li class="li_class" id="l113154">
+<span class="spanli" id="s113154">next&gt; : Slide suivant</span>
+</li>
+<script type="text/javascript">
+            var lil113154 = document.getElementById("l113154");
+            var spans113154 = document.getElementById("s113154");
+
+            lil113154.style.color = "green";
+
+            spans113154.style.color = "black";</script>
+<li class="li_class" id="l113155">
+<span class="spanli" id="s113155">&gt;&gt;| : Va à la dernière page</span>
+</li>
+<script type="text/javascript">
+            var lil113155 = document.getElementById("l113155");
+            var spans113155 = document.getElementById("s113155");
+
+            lil113155.style.color = "green";
+
+            spans113155.style.color = "black";</script>
+<li class="li_class" id="l113156">
+<span class="spanli" id="s113156">Plan : Ramène au plan général de la présentation qui a été créé automatiquement</span>
+</li>
+<script type="text/javascript">
+            var lil113156 = document.getElementById("l113156");
+            var spans113156 = document.getElementById("s113156");
+
+            lil113156.style.color = "green";
+
+            spans113156.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil112152 = document.getElementById("l112152");
+            var spans112152 = document.getElementById("s112152");
+
+            lil112152.style.color = "orange";
+
+            spans112152.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111152 = document.getElementById("l111152");
+            var spans111152 = document.getElementById("s111152");
+
+            lil111152.style.color = "green";
+
+            spans111152.style.color = "black";</script>
+<li class="li_class" id="l111159">
+<span class="spanli" id="s111159">Navigation par le hash
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l112159">
+<span class="spanli" id="s112159">Chaque slide possède sa propre "adresse" ( hash en anglais) sous la forme ( nn désigne numéro du slide par exemple 03 )
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l113159">
+<span class="spanli" id="s113159">mon-fichier.html#slidenn</span>
+</li>
+<script type="text/javascript">
+            var lil113159 = document.getElementById("l113159");
+            var spans113159 = document.getElementById("s113159");
+
+            lil113159.style.color = "green";
+
+            spans113159.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil112159 = document.getElementById("l112159");
+            var spans112159 = document.getElementById("s112159");
+
+            lil112159.style.color = "orange";
+
+            spans112159.style.color = "black";</script>
+<li class="li_class" id="l112161">
+<span class="spanli" id="s112161">On peut donc donner au navigateur l'adresse du slide que l'on veut afficher sous la forme
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l113161">
+<span class="spanli" id="s113161">mon-fichier.html#slide18 si on veut afficher le slide 18</span>
+</li>
+<script type="text/javascript">
+            var lil113161 = document.getElementById("l113161");
+            var spans113161 = document.getElementById("s113161");
+
+            lil113161.style.color = "green";
+
+            spans113161.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil112161 = document.getElementById("l112161");
+            var spans112161 = document.getElementById("s112161");
+
+            lil112161.style.color = "orange";
+
+            spans112161.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111159 = document.getElementById("l111159");
+            var spans111159 = document.getElementById("s111159");
+
+            lil111159.style.color = "green";
+
+            spans111159.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">19/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide20" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Fonctionnalités d'impression et de sauvegarde</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l111164">
+<span class="spanli" id="s111164">EAST va utiliser le système d'impression et de sauvegarde du navigateur pour imprimer ou sauvegarder la présentation</span>
+</li>
+<script type="text/javascript">
+            var lil111164 = document.getElementById("l111164");
+            var spans111164 = document.getElementById("s111164");
+
+            lil111164.style.color = "green";
+
+            spans111164.style.color = "black";</script>
+<li class="li_class" id="l111165">
+<span class="spanli" id="s111165">Il existe un bouton "Print" en bas à droite de la page sous le slide qui initie les fonctions suivantes
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l112165">
+<span class="spanli" id="s112165">Tous les slides sont visibles et sont mis à la queue leu leu</span>
+</li>
+<script type="text/javascript">
+            var lil112165 = document.getElementById("l112165");
+            var spans112165 = document.getElementById("s112165");
+
+            lil112165.style.color = "orange";
+
+            spans112165.style.color = "black";</script>
+<li class="li_class" id="l112166">
+<span class="spanli" id="s112166">Tous les boutons et les signes plus sont cachés</span>
+</li>
+<script type="text/javascript">
+            var lil112166 = document.getElementById("l112166");
+            var spans112166 = document.getElementById("s112166");
+
+            lil112166.style.color = "orange";
+
+            spans112166.style.color = "black";</script>
+<li class="li_class" id="l112167">
+<span class="spanli" id="s112167">Toutes les listes sont dépliées et affichées</span>
+</li>
+<script type="text/javascript">
+            var lil112167 = document.getElementById("l112167");
+            var spans112167 = document.getElementById("s112167");
+
+            lil112167.style.color = "orange";
+
+            spans112167.style.color = "black";</script>
+<li class="li_class" id="l112168">
+<span class="spanli" id="s112168">Le plan est ramené à sa forme simple</span>
+</li>
+<script type="text/javascript">
+            var lil112168 = document.getElementById("l112168");
+            var spans112168 = document.getElementById("s112168");
+
+            lil112168.style.color = "orange";
+
+            spans112168.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111165 = document.getElementById("l111165");
+            var spans111165 = document.getElementById("s111165");
+
+            lil111165.style.color = "green";
+
+            spans111165.style.color = "black";</script>
+<li class="li_class" id="l111170">
+<span class="spanli" id="s111170">Une fois cette opération effectuée, il suffit d'utiliser le système d'impression/sauvegarde du navigateur Web pour imprimer ou sauvegarder en PDF la présentation</span>
+</li>
+<script type="text/javascript">
+            var lil111170 = document.getElementById("l111170");
+            var spans111170 = document.getElementById("s111170");
+
+            lil111170.style.color = "green";
+
+            spans111170.style.color = "black";</script>
+<li class="li_class" id="l111171">
+<span class="spanli" id="s111171">Pour revenir à la présentation, il suffit de demander au navigateur de recharger la page</span>
+</li>
+<script type="text/javascript">
+            var lil111171 = document.getElementById("l111171");
+            var spans111171 = document.getElementById("s111171");
+
+            lil111171.style.color = "green";
+
+            spans111171.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">20/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide21" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Fonctionnalités diverses</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l111172">
+<span class="spanli" id="s111172">Gestion de la taille du texte
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l112172">
+<span class="spanli" id="s112172">Il existe des séquences de touche ou de souris communes à tous les navigateurs pour gérer la taille du texte ( accessibilité )
+
+</span>
+<ul type="circle">
+<li class="li_class" id="l113172">
+<span class="spanli" id="s113172">CTRL + Roulette de souris : Grossit/Réduit le texte</span>
+</li>
+<script type="text/javascript">
+            var lil113172 = document.getElementById("l113172");
+            var spans113172 = document.getElementById("s113172");
+
+            lil113172.style.color = "green";
+
+            spans113172.style.color = "black";</script>
+<li class="li_class" id="l113173">
+<span class="spanli" id="s113173">CTRL + "+" : Grossit le texte</span>
+</li>
+<script type="text/javascript">
+            var lil113173 = document.getElementById("l113173");
+            var spans113173 = document.getElementById("s113173");
+
+            lil113173.style.color = "green";
+
+            spans113173.style.color = "black";</script>
+<li class="li_class" id="l113174">
+<span class="spanli" id="s113174">CTRL+ "-" : Réduit le texte</span>
+</li>
+<script type="text/javascript">
+            var lil113174 = document.getElementById("l113174");
+            var spans113174 = document.getElementById("s113174");
+
+            lil113174.style.color = "green";
+
+            spans113174.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil112172 = document.getElementById("l112172");
+            var spans112172 = document.getElementById("s112172");
+
+            lil112172.style.color = "orange";
+
+            spans112172.style.color = "black";</script>
+<li class="li_class" id="l112176">
+<span class="spanli" id="s112176">Dans la prochaine version de EAST, deux boutons "A++" et "A--" en bas d'écran sous la page permettront de grossir ou réduire le texte à la souris</span>
+</li>
+<script type="text/javascript">
+            var lil112176 = document.getElementById("l112176");
+            var spans112176 = document.getElementById("s112176");
+
+            lil112176.style.color = "orange";
+
+            spans112176.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111172 = document.getElementById("l111172");
+            var spans111172 = document.getElementById("s111172");
+
+            lil111172.style.color = "green";
+
+            spans111172.style.color = "black";</script>
+<li class="li_class" id="l111178">
+<span class="spanli" id="s111178">Liens : on peut faire des liens <em>internes</em> ( entre slides) ou des liens <em>externes</em> ( d'un slide vers un site Web )</span>
+</li>
+<script type="text/javascript">
+            var lil111178 = document.getElementById("l111178");
+            var spans111178 = document.getElementById("s111178");
+
+            lil111178.style.color = "green";
+
+            spans111178.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">21/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="partie4" class="slide">
+<table height="60%" width="100%">
+<tbody>
+<tr>
+<td>
+<h1 class="titrepartie">Développements à venir</h1>
+</td>
+</tr>
+</tbody>
+</table>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber"/>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide22" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Dans la prochaine version</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square">
+<li class="li_class" id="l111179">
+<span class="spanli" id="s111179">Portage sur d'autres navigateurs Web
+
+</span>
+<ul>
+<li class="li_class" id="l112179">
+<span class="spanli" id="s112179">Un bug de la librairie timesheets.js empêche le fichier HTML de EAST de tourner sous IE 9</span>
+</li>
+<script type="text/javascript">
+              var lil112179 = document.getElementById("l112179");
+              var spans112179 = document.getElementById("s112179");
+
+              lil112179.style.color = "black";
+              spans112179.style.color = "black";
+            </script>
+<li class="li_class" id="l112180">
+<span class="spanli" id="s112180">Il est en cours de correction</span>
+</li>
+<script type="text/javascript">
+              var lil112180 = document.getElementById("l112180");
+              var spans112180 = document.getElementById("s112180");
+
+              lil112180.style.color = "black";
+              spans112180.style.color = "black";
+            </script>
+<li class="li_class" id="l112181">
+<span class="spanli" id="s112181">Nous allons également tester le HTML de EAST sous les dernières versions de Google Chrome</span>
+</li>
+<script type="text/javascript">
+              var lil112181 = document.getElementById("l112181");
+              var spans112181 = document.getElementById("s112181");
+
+              lil112181.style.color = "black";
+              spans112181.style.color = "black";
+            </script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111179 = document.getElementById("l111179");
+            var spans111179 = document.getElementById("s111179");
+
+            lil111179.style.color = "green";
+
+            spans111179.style.color = "black";</script>
+<li class="li_class" id="l111183">
+<span class="spanli" id="s111183">Possibilité de diffuser des présentations EAST sur un réseau
+
+</span>
+<ul>
+<li class="li_class" id="l112183">
+<span class="spanli" id="s112183">L'idée est d'avoir un orateur qui "déroule" une présentation EAST sur son PC</span>
+</li>
+<script type="text/javascript">
+              var lil112183 = document.getElementById("l112183");
+              var spans112183 = document.getElementById("s112183");
+
+              lil112183.style.color = "black";
+              spans112183.style.color = "black";
+            </script>
+<li class="li_class" id="l112184">
+<span class="spanli" id="s112184">Les auditeurs suivent sa présentation sur leur propre navigateur qui tourne sur leur PC</span>
+</li>
+<script type="text/javascript">
+              var lil112184 = document.getElementById("l112184");
+              var spans112184 = document.getElementById("s112184");
+
+              lil112184.style.color = "black";
+              spans112184.style.color = "black";
+            </script>
+<li class="li_class" id="l112185">
+<span class="spanli" id="s112185">Prototype réalisé par mes étudiants à l'Université d'Evry quasi opérationnel</span>
+</li>
+<script type="text/javascript">
+              var lil112185 = document.getElementById("l112185");
+              var spans112185 = document.getElementById("s112185");
+
+              lil112185.style.color = "black";
+              spans112185.style.color = "black";
+            </script>
+<li class="li_class" id="l112186">
+<span class="spanli" id="s112186">Potentiellement utilisable sur Internet ( visioconférence)</span>
+</li>
+<script type="text/javascript">
+              var lil112186 = document.getElementById("l112186");
+              var spans112186 = document.getElementById("s112186");
+
+              lil112186.style.color = "black";
+              spans112186.style.color = "black";
+            </script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111183 = document.getElementById("l111183");
+            var spans111183 = document.getElementById("s111183");
+
+            lil111183.style.color = "green";
+
+            spans111183.style.color = "black";</script>
+<li class="li_class" id="l111188">
+<span class="spanli" id="s111188">Faciliter le changement de thème
+
+</span>
+<ul type="disc">
+<li class="li_class" id="l112188">
+<span class="spanli" id="s112188">Le thème actuel est "en dur" dans la feuille de transformation XSLT</span>
+</li>
+<script type="text/javascript">
+            var lil112188 = document.getElementById("l112188");
+            var spans112188 = document.getElementById("s112188");
+
+            lil112188.style.color = "orange";
+
+            spans112188.style.color = "black";</script>
+<li class="li_class" id="l112189">
+<span class="spanli" id="s112189">L'idée est de pouvoir facilement changer de thème de façon externe</span>
+</li>
+<script type="text/javascript">
+            var lil112189 = document.getElementById("l112189");
+            var spans112189 = document.getElementById("s112189");
+
+            lil112189.style.color = "orange";
+
+            spans112189.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111188 = document.getElementById("l111188");
+            var spans111188 = document.getElementById("s111188");
+
+            lil111188.style.color = "green";
+
+            spans111188.style.color = "black";</script>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">22/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="partie5" class="slide">
+<table height="60%" width="100%">
+<tbody>
+<tr>
+<td>
+<h1 class="titrepartie">Conclusion</h1>
+</td>
+</tr>
+</tbody>
+</table>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber"/>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<div id="slide23" class="slide">
+<table width="100%">
+<tr>
+<td class="vingt logogauche" align="left">
+<img width="100%" title="" height="100%" src="CEA2012.svg" alt="" align="left"/>
+</td>
+<td class="soixante" align="center">
+<h2 class="slide_title">Conclusion</h2>
+</td>
+<td class="vingt logodroit" align="right"/>
+</tr>
+</table>
+
+<ul type="square" class="highinc">
+<li class="highlight" id="l111191">
+<span class="spanli" id="s111191">EAST est un système très simple d'emploi qui permet de faire des présentations 
+
+</span>
+<ul type="disc">
+<li class="highlight" id="l112191">
+<span class="spanli" id="s112191">dynamiques : puissance de HTML5, CSS et Javascript</span>
+</li>
+<script type="text/javascript">
+            var lil112191 = document.getElementById("l112191");
+            var spans112191 = document.getElementById("s112191");
+
+            lil112191.style.color = "orange";
+
+            spans112191.style.color = "black";</script>
+<li class="highlight" id="l112192">
+<span class="spanli" id="s112192">portables : n'importe quel navigateur Web</span>
+</li>
+<script type="text/javascript">
+            var lil112192 = document.getElementById("l112192");
+            var spans112192 = document.getElementById("s112192");
+
+            lil112192.style.color = "orange";
+
+            spans112192.style.color = "black";</script>
+<li class="highlight" id="l112193">
+<span class="spanli" id="s112193">personnalisables : tout est en Open Source et faciles à personnaliser</span>
+</li>
+<script type="text/javascript">
+            var lil112193 = document.getElementById("l112193");
+            var spans112193 = document.getElementById("s112193");
+
+            lil112193.style.color = "orange";
+
+            spans112193.style.color = "black";</script>
+<li class="highlight" id="l112194">
+<span class="spanli" id="s112194">facilement installables sur un serveur Web</span>
+</li>
+<script type="text/javascript">
+            var lil112194 = document.getElementById("l112194");
+            var spans112194 = document.getElementById("s112194");
+
+            lil112194.style.color = "orange";
+
+            spans112194.style.color = "black";</script>
+<li class="highlight" id="l112195">
+<span class="spanli" id="s112195">même jouables sur les smartphones B2G qui sortiront à la fin de l'année</span>
+</li>
+<script type="text/javascript">
+            var lil112195 = document.getElementById("l112195");
+            var spans112195 = document.getElementById("s112195");
+
+            lil112195.style.color = "orange";
+
+            spans112195.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111191 = document.getElementById("l111191");
+            var spans111191 = document.getElementById("s111191");
+
+            lil111191.style.color = "green";
+
+            spans111191.style.color = "black";</script>
+<li class="highlight" id="l111197">
+<span class="spanli" id="s111197">Quelques chiffres sur cette présentation pour illustrer la légèreté de la solution
+
+</span>
+<ul type="disc">
+<li class="highlight" id="l112197">
+<span class="spanli" id="s112197">Fichier XML : ~ 31 koctets ; 481 lignes</span>
+</li>
+<script type="text/javascript">
+            var lil112197 = document.getElementById("l112197");
+            var spans112197 = document.getElementById("s112197");
+
+            lil112197.style.color = "orange";
+
+            spans112197.style.color = "black";</script>
+<li class="highlight" id="l112198">
+<span class="spanli" id="s112198">Fichier HTML : ~ 95 koctets ; 3970 lignes</span>
+</li>
+<script type="text/javascript">
+            var lil112198 = document.getElementById("l112198");
+            var spans112198 = document.getElementById("s112198");
+
+            lil112198.style.color = "orange";
+
+            spans112198.style.color = "black";</script>
+</ul>
+</li>
+<script type="text/javascript">
+            var lil111197 = document.getElementById("l111197");
+            var spans111197 = document.getElementById("s111197");
+
+            lil111197.style.color = "green";
+
+            spans111197.style.color = "black";</script>
+<li class="signeplus">
+<img src="config_EAST/signe_plus.png"/>
+</li>
+</ul>
+<table width="100%" class="bas">
+<tr>
+<td class="tiers" align="left">
+<tt class="piedgauche">
+Tutoriel EAST
+</tt>
+</td>
+<td class="tiers" align="center">
+<tt class="slidenumber">23/23</tt>
+</td>
+<td class="tiers" align="right">
+<tt class="pieddroit">
+8 Mars 2012
+</tt>
+</td>
+</tr>
+</table>
+</div>
+<p class="menu" id="navigation_par">
+<button title="first slide" id="first">  &lt;&lt; begin   </button>
+<button title="previous slide" id="prev"> &lt; prev </button>
+<button title="next slide" id="next">     next &gt; </button>
+<button title="last slide" id="last">         end &gt;&gt;  </button>
+<button onclick="location.href='#sommaire'" title="Plan" id="plan"> Plan </button>
+<button onclick="make_print();" title="Print" id="print"> Print </button>
+</p>
+<p class="menuts" id="text_size_par">
+<button onclick="increase_body_size();" title="A++" id="A++">  A++ </button>
+<button onclick="decrease_body_size();" title="A--" id="A--">  A-- </button>
+</p>
+</div>
+<div id="erreur">
+<h1> Problème </h1>
+<ul>
+<h3> Francais </h3>
+<li> La configuration de EAST n'a pas été trouvée et cela empêche le fonctionnement normal de EAST. </li>
+<li> Pour corriger ce probleme, placez le répertoire <em> config_EAST </em>  à côté de votre fichier HTML dans le même répertoire et rechargez votre fichier HTML</li>
+</ul>
+<ul>
+<h3> English </h3>
+<li> EAST configuration has not been found and EAST cannot work normally. </li>
+<li> To fix this problem, just put the directory <em> config_EAST </em>  beside your HTML file in the same directory and reload your HTML file</li>
+</ul>
+</div>
+</body>
+</html>
